@@ -1,0 +1,14 @@
+{
+  "name": "ecolier-client",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Evan Gruère <evan.gruere@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "start": "yarn http-server"
+  },
+  "dependencies": {
+    "http-server": "0.12.3"
+  }
+}
