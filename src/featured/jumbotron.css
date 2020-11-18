@@ -1,0 +1,80 @@
+.jumbotron {
+    display: block;
+    margin: 1em;
+    border-radius: 1em;
+    padding: 2em;
+    color: rgba(255, 255, 255, .9);
+    margin-top: 100px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    background: radial-gradient(circle at 30% 107%, #ffffff, #e1edab 5.04%, #36c8bf 45%, #e9a1d3 60%, #8aa2e5 89.92%);
+}
+
+.jumbotron ul {
+    padding: 0;
+}
+
+.jumbotron li {
+    display: none;
+}
+
+.jumbotron li.active {
+    display: block;
+}
+
+.jumbotron h1 {
+    margin-bottom: .1em;
+    font-size: 3rem;
+    font-weight: 800;
+}
+
+.jumbotron h2 {
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    font-weight: small;
+}
+
+.jumbotron p {
+    margin-bottom: 1rem;
+    line-height: 1.5em;
+}
+
+.jumbotron .button {
+    padding: 1em;
+    display: inline-block;
+    border-radius: .5em;
+    color: white;
+    text-decoration: none;
+    border: 1px solid rgba(255, 255, 255, .9);
+
+}
+
+.pager ul {
+    display: block;
+    padding: .5em;
+    text-align: center;
+}
+
+.pager ul .pager-indicator {
+    display: inline-block;
+    width: .5em;
+    height: .5em;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 100%;
+    margin-right: .5em;
+    cursor: pointer;
+}
+
+.pager ul .pager-indicator.active {
+    background-color: rgba(255, 255, 255, .9);
+    width: .6em;
+    height: .6em;
+}
+
+@media screen and (min-width: 769px) {
+
+    .jumbotron {
+        margin: 100px auto 0 auto;
+        width: 75%;
+    }
+
+}

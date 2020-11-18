@@ -1,0 +1,74 @@
+@import './components/reset.css';
+@import './components/navbar.css';
+@import './article/article.css';
+@import './featured/jumbotron.css';
+@import './i18n/locale-picker.css';
+
+html {
+    font-family: 'Lato', sans-serif;
+    font-size: 11pt;
+    height: 100%;
+    width: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: #fafafa;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.footer {
+    background-color: #333;
+    color: white;
+    margin-top: auto;
+    flex-grow: 1;
+    padding: 2em;
+    position: relative;
+    min-height: 300px;
+    max-height: 400px;
+}
+
+.footer a {
+    text-decoration: none;
+    color: white;
+    display: block;
+    font-size: 2em;
+    margin: 1em 0em;
+    position: absolute;
+    bottom: 0;
+}
+
+.footer a span {
+    font-weight: 300;
+    font-size: 1rem;
+    margin-left: .1rem;
+    color: rgba(255, 255, 255, .42);;
+}
+
+.footer .list-title {
+    display: block;
+    font-size: 1em;
+    border-bottom: 1px solid rgba(255, 255, 255, .2);
+    padding-bottom: .3em;
+}
+
+.footer ul {
+    margin-top: .3em;
+    line-height: 1.5em;
+    color: rgba(255, 255, 255, .42);
+}

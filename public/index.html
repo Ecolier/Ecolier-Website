@@ -3,9 +3,33 @@
     <head>
         <title>Ecolier</title>
         <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
     </head>
     <body>
-        <ul class="jumbotron" id="featured"></ul>
+        <nav class="navbar">
+            <a class="brand" href="/">Ecolier</a>
+            <i id="navbar-dropdown-trigger" class="dropdown-button material-icons-round">arrow_drop_down</i>
+            <div id="navbar-dropdown" class="dropdown-menu">
+                <h2>Langage</h2>
+                <div id="locale-picker"></div>
+            </div>
+        </nav>
+        <header class="jumbotron">
+            <div aria-pager="featured-pager" id="featured-jumbotron"></div>
+            <div class="pager" aria-jumbotron="featured-jumbotron" id="featured-pager"></div>
+        </header>
+        <section class="article" id="article"></section>
+        <footer class="footer">
+            <span class="list-title">Products</span>
+            <ul>
+                <li>Khari - Human-sized Networking</li>
+                <li>Steppes - Musical Ecosystem</li>
+                <li>Hidavi - Historical Data Visualisation</li>
+            </ul>
+            <a href="/">Ecolier <span> > Technologiquement Parlant</span></a>
+        </footer>
     </body>
-    <script src="featured.js"></script>
+    <script type="text/javascript" src="dist/main.js"></script>
 </html>
