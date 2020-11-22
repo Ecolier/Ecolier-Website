@@ -7,29 +7,24 @@ import template from './featured.ejs'
 export class Featured extends I18n {
     constructor(element) {
         super(element, template)
-
         this.jumbotron = new Jumbotron(
             document.getElementById('featured-jumbotron'),
             new JumbotronPager(document.getElementById('featured-pager'))
         )
-        
-        this.featuredService = new FeaturedService()
-
-        this.featuredService.request('en').then(previews => {
-            previews.forEach((preview) => {
-                this.jumbotron.push(preview)
-            })
-            this.jumbotron.select(0)
-        })
-
-        this.getTranslations('en').then(translations => {
-            this.updateTranslations(translations)
-        })
+        this.translationCallback = this.getTranslations.bind(this)
+        this.applyTranslations()
     }
 
-    getTranslations(locale) {
+    getTranslations (locale) {
         return new Promise((resolve, reject) => {
-            this.featuredService.request(locale).then(previews => {
+            new FeaturedService().request(locale).then(previews => {
+
+                previews.forEach((preview) => {
+                    this.jumbotron.push(preview)
+                })
+
+                this.jumbotron.select(0)
+
                 resolve(previews.map((preview, index) => {
                     return {
                         [`preview.${index}.title`]: preview.title,

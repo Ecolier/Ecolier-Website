@@ -5,6 +5,8 @@ var _instance = null
 export class I18nProvider {
     constructor () {
         this.components = []
+        this.locale = ''
+        this.builtInTranslations = []
     }
 
     static getInstance () {
@@ -14,15 +16,29 @@ export class I18nProvider {
         } else { return _instance }
     }
 
+    setLocale (locale) {
+        this.locale = locale
+    }
+
+    getLocale () {
+        return this.locale
+    }
+
+    setBuiltInTranslations (translations) {
+        this.builtInTranslations = translations
+    }
+
+    getBuiltInTranslations () {
+        return this.builtInTranslations
+    }
+
     registerComponent (component) {
         this.components.push(component)
     }
 
     updateTranslations (locale) {
         this.components.forEach(component => {
-            component.getTranslations(locale).then(translations => {
-                component.updateTranslations(translations)
-            })
+            component.applyTranslations()
         })
     }
 }
@@ -31,6 +47,14 @@ export class I18n extends Component {
     constructor (element, template, data) {
         super(element, template, data)
         I18nProvider.getInstance().registerComponent(this)
+        this.translationCallback = null
+    }
+
+    applyTranslations () {
+        const translate = this.translationCallback ?? this.getDefaultTranslations
+        translate(I18nProvider.getInstance().getLocale()).then(translations => {
+            this.updateTranslations(translations)
+        })
     }
 
     updateTranslations (translations) {
@@ -39,8 +63,13 @@ export class I18n extends Component {
         })
     }
 
-    getTranslations (locale) { 
-        const selectedLocale = window.locales.find(l => l.code === locale)
-        return Promise.resolve(selectedLocale.translations)
+    getDefaultTranslations (locale) {
+        const res = { }
+        this.element.querySelectorAll('[aria-i18n]').forEach(e => {
+            const id = e.getAttribute('aria-i18n')
+            const translation = I18nProvider.getInstance().getBuiltInTranslations().find(t => t.code === locale)
+            res[id] = translation.translations[id]
+        })
+        return Promise.resolve(res)
     }
 }
