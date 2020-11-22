@@ -1,8 +1,9 @@
-@import './components/reset.css';
-@import './components/navbar.css';
+@import './application/application.css';
+@import './application/reset.css';
 @import './article/article.css';
-@import './featured/jumbotron.css';
-@import './i18n/locale-picker.css';
+@import './featured/featured.scss';
+@import './i18n/i18n.css';
+@import './navbar/navbar.css';
 
 html {
     font-family: 'Lato', sans-serif;
@@ -17,9 +18,6 @@ body {
     padding: 0;
     width: 100%;
     height: 100%;
-    display: flex;
-    flex-direction: column;
-    background-color: #fafafa;
 }
 
 ul {

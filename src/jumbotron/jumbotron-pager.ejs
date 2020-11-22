@@ -1,0 +1,8 @@
+<ul>
+    <% indicators.forEach((indicator) => { %>
+    <li class="pager-indicator" 
+        aria-target="<%= indicator.id %>"
+        onclick="ecolier.application.featured.jumbotron.pager.select(<%= indicator.id %>)"
+    ></li>
+    <% }) %>
+</ul>
