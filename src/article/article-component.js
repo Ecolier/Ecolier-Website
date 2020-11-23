@@ -6,7 +6,7 @@ export class Article extends I18n {
     constructor(element) {
         super(element, template)
         this.translationCallback = this.getTranslations
-        this.applyTranslations()
+        this.applyTranslations(I18nProvider.getInstance().getLocale())
     }
 
     getTranslations (locale) {

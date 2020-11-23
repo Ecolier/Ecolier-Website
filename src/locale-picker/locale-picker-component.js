@@ -1,73 +1,40 @@
-const LocalePicker = function (element, locales) {
-    this.rootElement = element
-    this.locales = []
-    this.onLocaleChanged = locale => { }
-    this.localeList = document.createElement('ul')
-    this.localeList.classList.add('locale-dropdown')
-    this.rootElement.appendChild(this.localeList)
-    locales.forEach(locale => this.push(locale));
-    this.setSelected(locales.find(locale => locale.selected === true).code)
-    this.selectedLocale = ''
+import { Component } from '../core/component'
+import template from './locale-picker.ejs'
 
-    document.addEventListener('click', (event) => {
-        const selectedItem = this.locales.find(locale => locale.selected === true)
-        if (event.target !== selectedItem.element) {
-            this.rootElement.classList.remove('active')
-        }
-    })
-}
+export class LocalePicker extends Component  {
+    constructor (element, locales) {
+        super(element, template, {
+            locales: locales
+        })
 
-LocalePicker.prototype.push = function (locale) {
-    const element = document.createElement('li')
-    element.classList.add('locale-item')
-    element.innerHTML = locale.name
-    this.locales.push({ ...locale, element})
-    this.localeList.appendChild(element)
-    element.onclick = event => this.setSelected(locale.code)
-}
+        this.didSelectLocale = (code) => { }
 
-LocalePicker.prototype.remove = function (code) {
-    const localeItem = this.locales.find(locale => locale.code === code)
-    this.locales = this.locales.filter(locale => locale.code !== code)
-    localeItem.element.remove()
-}
-
-LocalePicker.prototype.setSelected = function (code) {
-
-    this.selectedLocale = code
-    
-    const oldLocaleItem = this.locales.find(locale => locale.selected === true)
-    const newLocaleItem = this.locales.find(locale => locale.code === code)
-
-    newLocaleItem.selected = true
-    newLocaleItem.element.remove()
-    const newElement = document.createElement('span')
-    newElement.onclick = event => {
-        this.rootElement.classList.add('active')
-    }
-    newElement.innerHTML = newLocaleItem.name
-    newElement.classList.add('locale-selected')
-    newLocaleItem.element = newElement
-    this.rootElement.prepend(newElement)
-
-    if (newLocaleItem !== oldLocaleItem) {
-        oldLocaleItem.selected = false
-        oldLocaleItem.element.remove()
-        const oldElement = document.createElement('li')
-        oldElement.innerHTML = oldLocaleItem.name
-        oldElement.classList.add('locale-item')
-        oldElement.onclick = event => {
-            this.setSelected(oldLocaleItem.code)
-            this.onLocaleChanged(oldLocaleItem)
-        }
-        oldLocaleItem.element = oldElement
-        this.localeList.appendChild(oldElement)
+        document.addEventListener('click', (event) => {
+            const selectedItem = this.data.locales.find(locale => locale.selected === true)
+            if (event.target !== selectedItem.element) {
+                this.element.classList.remove('active')
+            }
+        })
     }
 
-    this.rootElement.dispatchEvent(new CustomEvent('locale-select', { 
-        detail: { locale: newLocaleItem }
-    }))
-    
-}
+    push (locale) {
+        this.data.locales.push(locale)
+        this.render()
+    }
 
-export { LocalePicker }
+    getLocaleItem (code) { return this.element.querySelector(`[aria-lang="${code}"]`) }
+    getSelectedLocale () { return this.data.locales.find(locale => locale.selected) }
+    findLocale (code) { return this.data.locales.find(locale => locale.code === code) }
+    
+    remove (code) {
+        this.locales = this.data.locales.filter(locale => locale.code !== code)
+        this.getLocaleItem(code).remove()
+    }
+    
+    setSelected (code) {
+        this.getSelectedLocale().selected = false
+        this.findLocale(code).selected = true
+        this.render()
+        this.didSelectLocale(code)
+    }
+}

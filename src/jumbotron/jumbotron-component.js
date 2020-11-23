@@ -8,24 +8,22 @@ export class JumbotronPager extends Component {
         super(element, jumbotronPagerTemplate, { 
             indicators: []
         })
-        this.indicators = []
         this.linkedJumbotron = {}
     }
 
     select (id) {
         this.linkedJumbotron.select(id)
+        
     }
 
     addIndicator (id) {
-        this.indicators.push({ id: id })
-        this.element.innerHTML = this.template({ 
-            indicators: this.indicators
-        })
+        this.data.indicators.push({ id: id })
+        this.render()
     }
 
     clearIndicators () {
-        this.indicators = []
-        this.element.innerHTML = this.template({ indicators: [] })
+        this.data.indicators = []
+        this.render()
     }
 }
 
@@ -34,33 +32,36 @@ export class Jumbotron extends Component {
         super(element, jumbotronTemplate, { 
             previews: [] 
         })
-        this.previews = []
         this.pager = pager
         this.pager.linkedJumbotron = this
     }
 
     clear () {
-        this.previews = []
-        this.element.innerHTML = this.template({ previews: [] })
+        this.data.previews = []
+        this.render()
         this.pager.clearIndicators()
     }
 
     push (preview) {
-        const id = this.previews.length
-        this.previews.push({ ...preview, id: id })
-        this.element.innerHTML = this.template({ previews: this.previews })
+        const id = this.data.previews.length
+        this.data.previews.push({ ...preview, id: id })
+        this.render()
         this.pager.addIndicator(id)
     }
 
     select (id) {
-        this.previews.forEach(preview => {
+        this.data.previews.forEach(preview => {
             if (preview.selected === true) { preview.selected = false }
             if (preview.id === id) { preview.selected = true }
         })
-        this.element.innerHTML = this.template({ previews: this.previews })
+        this.pager.element.querySelectorAll(`[aria-target]`).forEach(e => {
+            e.classList.remove('active')
+        })
+        this.pager.element.querySelector(`[aria-target="${id}"]`).classList.add('active')
+        this.render()
     }
 
     selected () {
-        return this.previews.find(preview => preview.selected === true)
+        return this.data.previews.find(preview => preview.selected === true)
     }
 }

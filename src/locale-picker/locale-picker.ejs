@@ -1,0 +1,11 @@
+<ul class="locale-dropdown">
+    <% const selected = locales.find(locale => locale.selected)
+    if (selected) { %>
+        <span class="locale-selected"><%= selected.name %></span>
+    <% } %>
+    <% locales.filter(locale => locale.code !== selected.code).forEach(locale => { %>
+        <li aria-lang="<%= locale.code %>" 
+            class="locale-item"
+            onclick="ecolier.application.navbar.i18n.localePicker.setSelected('<%= locale.code %>')"><%= locale.name %></li>
+    <% }) %>
+</ul>

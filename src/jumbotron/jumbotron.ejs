@@ -5,10 +5,10 @@
     <% } else { %>
     <li aria-id="<%= preview.id %>">
     <% } %>
-        <h1 aria-i18n="preview.<%= preview.id %>.title"></h1>
-        <h2 aria-i18n="preview.<%= preview.id %>.subtitle"></h2>
-        <p aria-i18n="preview.<%= preview.id %>.content"></p>
-        <a href="#">Learn more</a>
+        <h1><%= preview.title %></h1>
+        <h2><%= preview.subtitle %></h2>
+        <p><%= preview.content %></p>
+        <a href="<%= preview.route %>"><%= preview.callout %></a>
     </li>
     <% }) %>
 </ul>

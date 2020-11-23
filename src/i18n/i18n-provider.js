@@ -38,7 +38,7 @@ export class I18nProvider {
 
     updateTranslations (locale) {
         this.components.forEach(component => {
-            component.applyTranslations()
+            component.applyTranslations(locale)
         })
     }
 }
@@ -50,9 +50,9 @@ export class I18n extends Component {
         this.translationCallback = null
     }
 
-    applyTranslations () {
-        const translate = this.translationCallback ?? this.getDefaultTranslations
-        translate(I18nProvider.getInstance().getLocale()).then(translations => {
+    applyTranslations (locale) {
+        const translate = this.translationCallback ?? this.getDefaultTranslations.bind(this)
+        translate(locale).then(translations => {
             this.updateTranslations(translations)
         })
     }

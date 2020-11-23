@@ -11,8 +11,8 @@ export class I18nComponent extends I18n {
             document.getElementById('navbar-menu'),
             document.getElementById('navbar-dropdown-trigger')
         )
-    
-        const availableLocales = I18nProvider.getInstance().getBuiltInTranslations().map(translation => {
+
+        const availableLocales = I18nProvider.getInstance().getBuiltInTranslations().map((translation, index) => {
             const locale = {
                 code: translation.code,
                 name: translation.name
@@ -26,8 +26,10 @@ export class I18nComponent extends I18n {
             availableLocales
         )
 
-        this.localePicker.onLocaleChanged = locale => {
-            I18nProvider.getInstance().updateTranslations(locale.code)
+        this.localePicker.didSelectLocale = locale => {
+            I18nProvider.getInstance().updateTranslations(locale)
         }
+
+        this.applyTranslations(I18nProvider.getInstance().getLocale())
     }
 }
