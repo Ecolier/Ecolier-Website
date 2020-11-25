@@ -1,14 +1,16 @@
-<ul>
-    <% previews.forEach((preview) => { %>
-    <% if (preview.selected === true) { %>
-    <li aria-id="<%= preview.id %>" class="active">
-    <% } else { %>
-    <li aria-id="<%= preview.id %>">
-    <% } %>
-        <h1><%= preview.title %></h1>
-        <h2><%= preview.subtitle %></h2>
-        <p><%= preview.content %></p>
-        <a href="<%= preview.route %>"><%= preview.callout %></a>
-    </li>
-    <% }) %>
-</ul>
+<div id="featured-jumbotron">
+    <ul data-ref="previews">
+        <% previews.forEach((preview, index) => { %>
+        <% if (index === 0) { %>
+        <li data-ref="<%= index %>" class="active">
+        <% } else { %>
+        <li data-ref="<%= index %>">
+        <% } %>
+            <h1><%= preview.title %></h1>
+            <h2><%= preview.subtitle %></h2>
+            <p><%= preview.content %></p>
+            <a href="<%= preview.route %>"><%= preview.callout %></a>
+        </li>
+        <% }) %>
+    </ul>
+</div>

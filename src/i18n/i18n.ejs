@@ -1,5 +1,7 @@
-<i id="navbar-dropdown-trigger" class="dropdown-button material-icons-round">arrow_drop_down</i>
-<div id="navbar-menu" class="dropdown-menu">
-    <h2 aria-i18n="locale-picker.language"></h2>
-    <div id="locale-picker"></div>
+<div id="navbar-dropdown">
+    <i id="navbar-dropdown-trigger" class="dropdown-button material-icons-round">arrow_drop_down</i>
+    <div id="navbar-menu" class="dropdown-menu">
+        <h2><%= translations['locale-picker.language'] %></h2>
+        <%- include('../locale-picker/locale-picker.ejs') %>
+    </div>
 </div>

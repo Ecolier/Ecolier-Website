@@ -48,7 +48,7 @@ module.exports = {
   
   output: {
     filename: 'main.js',
-    path: __dirname + '/dist',
+    path: __dirname + '/public',
     libraryTarget: 'var',
     library: 'ecolier'
   },
@@ -59,11 +59,6 @@ module.exports = {
 
   plugins: [
     new webpack.ProgressPlugin(),
-    new HtmlWebpackPlugin({
-      template: __dirname + '/src/index.html',
-      inject: 'body',
-      publicPath: '/'
-    })
   ],
   
   module: {

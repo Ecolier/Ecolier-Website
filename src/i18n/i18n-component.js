@@ -1,35 +1,24 @@
 import { LocalePicker } from '../locale-picker/locale-picker-component'
 import { Dropdown } from '../dropdown/dropdown-component'
-import { I18n, I18nProvider } from './i18n-provider'
-import template from './i18n.ejs'
+import { Component } from '../core/component'
 
-export class I18nComponent extends I18n {
+export class I18nComponent extends Component {
     constructor (element) {
-        super(element, template)
+        super(element)
 
         this.dropdown = new Dropdown(
             document.getElementById('navbar-menu'),
             document.getElementById('navbar-dropdown-trigger')
         )
-
-        const availableLocales = I18nProvider.getInstance().getBuiltInTranslations().map((translation, index) => {
-            const locale = {
-                code: translation.code,
-                name: translation.name
-            }
-            if (I18nProvider.getInstance().getLocale() == locale.code) locale.selected = true
-            return locale
-        })
-
+        
         this.localePicker = new LocalePicker(
-            document.getElementById('locale-picker'), 
-            availableLocales
+            document.getElementById('navbar-menu')
         )
 
         this.localePicker.didSelectLocale = locale => {
-            I18nProvider.getInstance().updateTranslations(locale)
+            const components = window.location.pathname.split('/')
+            components[1] = locale
+            window.location.replace(components.join('/'))
         }
-
-        this.applyTranslations(I18nProvider.getInstance().getLocale())
     }
 }

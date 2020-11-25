@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="<%= locale %>">
     <head>
         <title>Ecolier</title>
         <meta charset="utf-8">
@@ -8,6 +8,7 @@
         <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
     </head>
     <body>
-        <div id="application"></div>
-    <script src="/main.js"></script></body>
+        <%- include('../src/application/application.ejs') %>
+        <script src="/main.js"></script>
+    </body>
 </html>

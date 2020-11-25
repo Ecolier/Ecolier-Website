@@ -1,17 +1,10 @@
-import ejs from 'ejs'
-
 export class Component {
-    constructor(element, template, data) {
+    constructor(element) {
         this.element = element
-        this.data = data
 
-        if (template) {
-            this.template = ejs.compile(template)
-            this.render()
-        }
-    }
-
-    render () {
-        this.element.innerHTML = this.template(this.data)
+        this.refs = Array.from(this.element.querySelectorAll('[data-ref]')).reduce((map, elem) => {
+            map[elem.getAttribute('data-ref')] = elem
+            return map
+        }, {})
     }
 }

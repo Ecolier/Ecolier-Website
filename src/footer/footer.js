@@ -1,9 +1,7 @@
-import { I18n, I18nProvider } from '../i18n/i18n-provider'
-import template from './footer.ejs'
+import { Component } from '../core/component'
 
-export class Footer extends I18n {
+export class Footer extends Component {
     constructor (element) {
-        super(element, template)
-        this.applyTranslations(I18nProvider.getInstance().getLocale())
+        super(element)
     }
 }
