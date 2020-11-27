@@ -22,5 +22,21 @@ export class JumbotronPager extends Component {
 export class Jumbotron extends Component {
     constructor (element) {
         super(element)
+        Object.keys(this.refs).forEach(indicatorTarget => {
+
+            var startX = 0
+
+            this.refs[indicatorTarget].addEventListener('touchstart', (event) => {
+                startX = event.pageX
+            })
+
+            this.refs[indicatorTarget].addEventListener('touchmove', (event) => {
+                console.log(startX - event.pageX)
+            })
+
+            this.refs[indicatorTarget].addEventListener('touchend', (event) => {
+                startX = 0
+            })
+        })
     }
 }

@@ -1,7 +1,11 @@
 const express = require('express')
 const path = require('path')
 const axios = require('axios').default
-const config = require('../config.json')
+const debug = require('debug')('ecolier')
+
+const environment = process.env.NODE_ENV ?? 'development'
+if (environment === 'development') { require('dotenv').config({ path: '.env.dev' }) }
+if (environment === 'production') {  require('dotenv').config({ path: '.env.prod' }) }
 
 const application = express()
 application.set('view engine', 'ejs');
@@ -28,17 +32,33 @@ application.get('/', (req, res, next) => {
 application.get('/:locale', 
 (req, res, next) => { return getLocaleIfAvailable(req.params.locale) ? next() : res.redirect(404) }, 
 async (req, res, next) => {
-    const featured = await axios.get(`${config.server}/${req.params.locale}/featured`)
-    const article = await axios.get(`${config.server}/${req.params.locale}/article/ecolier`)
+    const featured = await axios.get(`${process.env.SERVER}/${req.params.locale}/featured`)
+    const article = await axios.get(`${process.env.SERVER}/${req.params.locale}/article/ecolier`)
+    const products = await axios.get(`${process.env.SERVER}/${req.params.locale}/products`)
     res.render(path.resolve(__dirname, '..', 'public', 'index.ejs'), {
         locale: req.params.locale,
         previews: featured.data,
         article: article.data[0],
         locales: locales,
-        translations: translations[req.params.locale]
+        translations: translations[req.params.locale],
+        products: products.data
     })
 })
 
-application.listen(8080, () => {
-    console.log('application is running on port *:8080')
+application.get('/:locale/product/:product', 
+(req, res, next) => { return getLocaleIfAvailable(req.params.locale) ? next() : res.redirect(404) }, 
+async (req, res, next) => {
+    const product = await axios.get(`${process.env.SERVER}/${req.params.locale}/product/${req.params.product}`)
+    const products = await axios.get(`${process.env.SERVER}/${req.params.locale}/products`)
+    res.render(path.resolve(__dirname, '..', 'public', 'product.ejs'), {
+        locale: req.params.locale,
+        product: product.data,
+        locales: locales,
+        translations: translations[req.params.locale],
+        products: products.data
+    })
+})
+
+application.listen(process.env.PORT, () => {
+    debug(`Listening on port ${process.env.PORT}`)
 })

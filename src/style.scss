@@ -40,11 +40,16 @@ ul {
     flex-grow: 1;
     padding: 2em 1em;
     position: relative;
-    min-height: 300px;
-    max-height: 400px;
+    min-height: 250px;
+    max-height: 250px;
 }
 
 .footer a {
+    text-decoration: none;
+    color: white;
+}
+
+.footer .brand {
     text-decoration: none;
     color: white;
     display: block;
@@ -54,7 +59,8 @@ ul {
     bottom: 0;
 }
 
-.footer a span {
+.footer .brand span,
+.footer .product span {
     font-weight: 300;
     font-size: 1rem;
     margin-left: .1rem;
