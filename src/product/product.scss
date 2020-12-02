@@ -1,0 +1,37 @@
+@import '../common/common.scss';
+@import './summary/summary.scss';
+
+.product-header {
+    
+}
+
+.product-name {
+    font-size: 3em;
+    font-weight: bold;
+    padding: 0 1rem;
+    margin-bottom: .5rem;
+    color: $primary-text;
+}
+
+.product-description {
+    font-size: 2em;
+    padding: 0 1rem;
+    margin-bottom: 1em;
+    color: $secondary-text;
+}
+
+.product-content {
+    padding: 1em;
+    line-height: 1.5em;
+
+    h1 {
+        font-size: 2em;
+        color: $primary-text;
+        margin: 1em 0;
+    }
+
+    p {
+        color: $primary-text;
+        margin-bottom: 1em;
+    }
+}

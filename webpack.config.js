@@ -4,12 +4,15 @@ const TerserPlugin = require('terser-webpack-plugin');
 
 module.exports = {
   mode: process.env.NODE_ENV ?? 'development',
+
+  entry: {
+    landing: './src/landing/landing.js',
+    product: './src/product/product.js'
+  },
   
   output: {
-    filename: 'main.js',
-    path: __dirname + '/public',
-    libraryTarget: 'var',
-    library: 'ecolier'
+    filename: '[name].bundle.js',
+    path: __dirname + '/public'
   },
 
   resolve: {
@@ -17,7 +20,7 @@ module.exports = {
   },
 
   plugins: [
-    new webpack.ProgressPlugin(),
+    new webpack.ProgressPlugin()
   ],
   
   module: {

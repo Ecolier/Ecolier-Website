@@ -1,0 +1,34 @@
+@import './reset.scss';
+@import './variables.scss';
+@import './footer/footer.scss';
+@import './i18n/i18n.scss';
+@import './navbar/navbar.scss';
+
+html {
+    font-family: 'Lato', sans-serif;
+    font-size: 11pt;
+    height: 100%;
+    width: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: #fafafa;
+    margin-top: 80px;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+* {
+    box-sizing: border-box;
+}

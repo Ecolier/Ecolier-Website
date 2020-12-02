@@ -1,5 +1,5 @@
 import { Component } from '../../core/component'
-import { Jumbotron, JumbotronPager } from '../jumbotron/jumbotron-component'
+import { Jumbotron, JumbotronPager } from '../../common/jumbotron/jumbotron-component'
 
 export class FeaturedComponent extends Component {
     constructor(element) {

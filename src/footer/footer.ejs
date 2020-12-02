@@ -1,9 +1,0 @@
-<footer class="footer" id="footer">
-    <span class="list-title"><%= translations['footer.products'] %></span>
-    <ul>
-        <% products.forEach(product => { %>
-            <li><a class="product" href="/<%= locale %>/product/<%= product.name.toLowerCase() %>"><%= product.name %><span> - <%= product.description %></span></a></li>
-        <% }) %>
-    </ul>
-    <a href="/<%= locale %>" class="brand">Ecolier <span><%= translations['footer.spirit'] %></span></a>
-</footer>

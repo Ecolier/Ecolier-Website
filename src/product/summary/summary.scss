@@ -1,0 +1,35 @@
+$summary-indicator-background: rgba(black, .3);
+$summary-indicator-background-selected: rgba(black, .9);
+
+.summary {
+
+    padding: 0 1rem;
+
+    li {
+        border-left: 2px solid $summary-indicator-background;
+        padding: 9pt;
+
+        a {
+            color: $secondary-text;
+        }
+    }
+
+    li.selected {
+        border-left: 2px solid $summary-indicator-background-selected;
+
+        a {
+            color: $primary-text;
+        }
+    }
+
+    h1 {
+        color: $secondary-text;
+        font-weight: 300;
+        margin-bottom: 1em;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+}
