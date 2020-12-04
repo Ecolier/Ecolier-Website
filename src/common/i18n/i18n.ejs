@@ -1,5 +1,7 @@
 <div id="navbar-dropdown">
-    <i id="navbar-dropdown-trigger" class="dropdown-button material-icons-round">arrow_drop_down</i>
+    <div id="navbar-dropdown-trigger" class="dropdown-button">
+        <i class="material-icons-round">public</i>
+    </div>
     <div id="navbar-menu" class="dropdown-menu">
         <h2><%= translations['locale-picker.language'] %></h2>
         <%- include('../locale-picker/locale-picker.ejs') %>

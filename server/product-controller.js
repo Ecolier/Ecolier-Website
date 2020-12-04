@@ -6,8 +6,10 @@ const { BaseController } = require('./base-controller')
 
 class ProductController extends BaseController {
     constructor () {
-        super(path.resolve(__dirname, '..', 'public', 'product.ejs'))
-        this.router.get('/', this.fetchData.bind(this), this.render.bind(this) )
+        super({
+            template: path.resolve(__dirname, '..', 'public', 'product.ejs')
+        })
+        this.addMiddleware(this.fetchData.bind(this))
     }
     
     async fetchData (req, res, next) {      

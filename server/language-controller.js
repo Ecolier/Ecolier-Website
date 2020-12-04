@@ -3,10 +3,10 @@ const { Controller } = require('./controller')
 class LanguageController extends Controller {
     constructor () {
         super()
-        
-        this.router.get('/', (req, res) => {
-            return res.redirect(`/${req.acceptsLanguages()[0].split('-')[0]}`)
-        })
+    }
+
+    render (req, res, next) {
+        return res.redirect(`/${req.acceptsLanguages()[0].split('-')[0]}`)
     }
 }
 

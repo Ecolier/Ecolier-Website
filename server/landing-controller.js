@@ -5,10 +5,10 @@ const { BaseController } = require('./base-controller')
 
 class LandingController extends BaseController {
     constructor () {
-        super(path.resolve(__dirname, '..', 'public', 'landing.ejs'), {
+        super({ template: path.resolve(__dirname, '..', 'public', 'landing.ejs') }, { 
             title: 'Ecolier'
         })
-        this.router.get('/', this.fetchData.bind(this), this.render.bind(this) )
+        this.addMiddleware(this.fetchData.bind(this))
     }
 
     async fetchData (req, res, next) {      
