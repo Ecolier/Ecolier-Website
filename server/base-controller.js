@@ -11,6 +11,13 @@ class BaseController extends Controller {
         if(i18n.getLocaleIfAvailable(this.data.locale)) {
             this.data.locales = i18n.locales
             this.data.translations = i18n.translations[this.data.locale]
+
+            this.data.locales.forEach(locale => {
+                const url = req.originalUrl.split('/')
+                url[1] = locale.code
+                locale.localizedPath = url.join('/')
+            })
+            
             return next()
         }
         res.redirect(404)

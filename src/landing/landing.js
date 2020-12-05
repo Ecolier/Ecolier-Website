@@ -1,8 +1,7 @@
-import { I18nComponent } from '../common/i18n/i18n-component'
-import { MenuComponent } from '../common/menu/menu'
+import { Dropdown } from '../common/dropdown/dropdown'
 import { FeaturedComponent } from './featured/featured-component'
 import './landing.scss'
 
-new I18nComponent(document.getElementById('navbar-dropdown'))
+new Dropdown(document.getElementById('dropdown-menu'))
+new Dropdown(document.getElementById('locale-picker'))
 new FeaturedComponent(document.getElementById('featured'))
-new MenuComponent(document.getElementById('menu-dropdown'))

@@ -1,6 +1,5 @@
-import { I18nComponent } from '../common/i18n/i18n-component'
-import { MenuComponent } from '../common/menu/menu'
+import { Dropdown } from '../common/dropdown/dropdown'
 import './product.scss'
 
-new I18nComponent(document.getElementById('navbar-dropdown'))
-new MenuComponent(document.getElementById('menu-dropdown'))
+new Dropdown(document.getElementById('dropdown-menu'))
+new Dropdown(document.getElementById('locale-picker'))
