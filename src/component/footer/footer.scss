@@ -1,0 +1,51 @@
+.footer {
+    background-color: rgba(0, 0, 0, .96);
+    color: white;
+    margin-top: auto;
+    flex-grow: 1;
+    position: relative;
+    min-height: 250px;
+    max-height: 250px;
+}
+
+.footer a {
+    text-decoration: none;
+    color: white;
+}
+
+.footer .brand {
+    text-decoration: none;
+    color: white;
+    display: block;
+    font-size: 2em;
+    margin: 1em 0em;
+    position: absolute;
+    bottom: 0;
+}
+
+.footer .brand span,
+.footer .product span {
+    font-weight: 300;
+    font-size: 1rem;
+    margin-left: .1rem;
+    color: rgba(255, 255, 255, .42);;
+}
+
+.footer .list-title {
+    margin: 9pt 0;
+    display: block;
+    font-size: 1em;
+    padding: 6pt;
+    font-weight: 300;
+    border-left: 2px solid rgba(white, .6);
+    margin-bottom: 6pt;
+    color: rgba(white, .6);
+}
+
+.footer ul {
+    color: rgba(255, 255, 255, .42);
+
+    li {
+        padding: 6pt 0;
+    }
+}

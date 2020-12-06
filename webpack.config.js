@@ -1,26 +1,42 @@
 const path = require('path');
 const webpack = require('webpack');
 const TerserPlugin = require('terser-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   mode: process.env.NODE_ENV ?? 'development',
 
   entry: {
-    landing: './src/landing/landing.js',
-    product: './src/product/product.js'
+    landing: './src/page/landing/landing.js',
+    product: './src/page/product/product.js'
   },
   
   output: {
     filename: '[name].bundle.js',
-    path: __dirname + '/public'
+    path: __dirname + '/dist'
   },
 
   resolve: {
+    alias: {
+      'component': path.resolve(__dirname, 'src', 'component')
+    },
     fallback: { path: require.resolve("path-browserify"), fs: false }
   },
 
   plugins: [
-    new webpack.ProgressPlugin()
+    new webpack.ProgressPlugin(),
+    new MiniCssExtractPlugin(),
+    new HtmlWebpackPlugin({
+      chunks: ['landing'],
+      filename: 'landing.ejs',
+      template: './src/page/landing/index.ejs'
+    }),
+    new HtmlWebpackPlugin({
+      chunks: ['product'],
+      filename: 'product.ejs',
+      template: './src/page/product/index.ejs'
+    })
   ],
   
   module: {
@@ -38,7 +54,7 @@ module.exports = {
         test: /.(scss|css)$/,
         use: [
           {
-            loader: "style-loader"
+            loader: MiniCssExtractPlugin.loader
           }, 
           {
             loader: "css-loader",

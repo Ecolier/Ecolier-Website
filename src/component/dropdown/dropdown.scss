@@ -1,0 +1,131 @@
+@import '../variables.scss';
+
+.dropdown__title {
+    display: block;
+    font-size: 18pt;
+    padding-bottom: 9pt;
+    margin-bottom: 9pt;
+    border-bottom: 1pt solid rgba(black, .09);
+}
+
+.dropdown__item:not(:last-child) {
+    margin-bottom: 6pt;
+}
+
+.dropdown__item {
+    padding: 9pt 0;
+    display: flex;
+    cursor: pointer;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 3pt;
+    color: $text-dark-1;
+    transition: all .2s;
+}
+
+.dropdown__item__icon {
+    position: relative;
+    line-height: 0;
+    font-size: 30pt;
+    background-color: rgba(black, .3);
+}
+
+.dropdown__item__icon:after {
+    opacity: 0;
+    content: '';
+    position: absolute;
+    width: 30pt;
+    height: 30pt;
+    z-index: -1;
+    border-radius: 100%;
+    overflow: visible;
+    left: -6pt;
+    top: -6pt;
+    transition: opacity .2s;
+}
+
+.dropdown__item.item--selected {
+    color: $text-dark-0;
+}
+
+.dropdown__item:not(.item--selected):hover {
+    color: $text-dark-0;
+    background-color: rgba(black, .06);
+    margin-left: -9pt;
+    padding-left: 9pt;
+    margin-right: -9pt;
+    padding-right: 9pt;
+}
+
+.dropdown__item:not(.item--selected):hover .dropdown__item__icon {
+    position: relative;
+    transition: color .2s;
+    color: $text-dark-0;
+}
+
+.dropdown__item__link {
+    color: inherit;
+    text-decoration: none;
+}
+
+.dropdown__menu {
+    display: none;
+}
+
+.dropdown__menu.menu--active {
+    display: block;
+}
+
+.dropdown__menu-trigger {
+    padding: 9pt;
+    display: flex;
+    cursor: pointer;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 3pt;
+}
+
+.dropdown__menu__header {
+    padding-bottom: 9pt;
+    margin-bottom: 9pt;
+    border-bottom: 1px solid rgba(0, 0, 0, .09);
+}
+
+.dropdown__menu__back-trigger {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.dropdown__item.item--left {
+    justify-content: left;
+}
+
+.dropdown__item__icon.icon--check {
+    font-size: 20pt;
+    color: rgb(54, 88, 241);
+}
+
+.dropdown__item__icon.icon--uncheck {
+    font-size: 20pt;
+    color: $text-dark-1;
+}
+
+.dropdown__item__icon.icon--left {
+    font-size: 18pt;
+    line-height: 18pt;
+    padding: 6pt;
+    background-color: rgba(0, 0, 0, .06);
+    border-radius: 100%;
+    margin-right: 9pt;
+}
+
+.item__label.label--secondary {
+    display: block;
+    margin-left: 6pt;
+    color: $text-dark-1;
+}
+
+.item__label.label--grow {
+    flex-grow: 1;
+}

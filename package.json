@@ -6,9 +6,9 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "debug": "DEBUG=ecolier node --inspect-brk ./server/index.js",
-    "watch": "DEBUG=ecolier nodemon ./server/index.js",
-    "start": "node ./server/index.js"
+    "debug": "DEBUG=ecolier node --inspect-brk ./src/server/index.js",
+    "watch": "DEBUG=ecolier nodemon ./src/server/index.js",
+    "start": "node ./src/server/index.js"
   },
   "dependencies": {
     "axios": "^0.21.0",

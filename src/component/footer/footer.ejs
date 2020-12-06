@@ -1,0 +1,11 @@
+<footer class="footer" id="footer">
+    <div class="c-md">
+        <span class="list-title"><%= translations['footer.products'].toUpperCase() %></span>
+        <ul>
+            <% products.forEach(product => { %>
+                <li><a class="product" href="/<%= locale %>/product/<%= product.name.toLowerCase() %>"><%= product.name %><span> - <%= product.description %></span></a></li>
+            <% }) %>
+        </ul>
+        <a href="/<%= locale %>" class="brand">Ecolier <span><%= translations['footer.spirit'] %></span></a>
+    </div>
+</footer>

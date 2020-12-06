@@ -1,0 +1,77 @@
+$navbar-bg: $bg-light-0;
+$navbar-brand-color: $text-dark-1;
+
+.navbar {
+    background: $navbar-bg;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    box-shadow: 0 0 3px 2px rgba(0, 0, 0, .09);
+}
+
+.navbar__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navbar__container .navbar__brand {
+    margin-left: -12pt;
+}
+
+.navbar__brand {
+    padding: 18pt 12pt;
+    text-decoration: none;
+    color: $navbar-brand-color;
+}
+
+.navbar__nav-items.nav-items--right {
+    position: relative;
+}
+
+.navbar__nav-items.nav-items--right .nav-item {
+    margin-left: 6pt;
+}
+
+.navbar__dropdown {
+    display: none;
+}
+
+.navbar__dropdown.dropdown--active {
+    display: block;
+    position: absolute;
+    background-color: white;
+    right: 0;
+    top: 110%;
+    box-shadow: 0px 0px 12px 3px rgba(0, 0, 0, 0.09);
+    border-radius: 6pt;
+    z-index: 1;
+    width: 50%;
+    min-width: 300px;
+    padding: 15pt;
+}
+
+.navbar__dropdown-trigger {
+    transition: background-color .2s ease-in-out;
+    border-radius: 100%;
+    background-color: rgba(0, 0, 0, 0.06);
+    color: rgba(0, 0, 0, 0.27);
+    cursor: pointer;
+    display: block;
+    float: left;
+    width: 36pt;
+    height: 36pt;
+    text-align: center;
+}
+
+.navbar__dropdown-trigger__icon {
+    line-height: 36pt;
+}
+
+.navbar__dropdown-trigger.dropdown-trigger--active,
+.navbar__dropdown-trigger:hover {
+    transition: background-color .2s ease-in-out;
+    background-color: rgba(0, 0, 0, .15);
+}
+

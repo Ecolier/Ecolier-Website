@@ -1,0 +1,33 @@
+$summary-indicator-background: $text-dark-2;
+$summary-indicator-background-selected: $text-dark-1;
+
+.summary {
+
+    li {
+        border-left: 2px solid $summary-indicator-background;
+        padding: 9pt;
+
+        a {
+            color: $text-dark-1;
+        }
+    }
+
+    li.selected {
+        border-left: 2px solid $summary-indicator-background-selected;
+
+        a {
+            color: $text-dark-0;
+        }
+    }
+
+    h1 {
+        color: $text-dark-1;
+        font-weight: 300;
+        margin-bottom: 1em;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+}
