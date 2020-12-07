@@ -3,7 +3,7 @@
 </div>
 <div id="dropdown-menu" class="navbar__dropdown" data-trigger="dropdown-menu-trigger">
     <div class="dropdown__list">
-        <div class="dropdown__item" data-menu="products-menu">
+        <div class="item--condensed dropdown__item" data-menu="products-menu">
             <i class="dropdown__item__icon icon--left material-icons-round">
                 get_app
             </i>
@@ -12,24 +12,24 @@
                 chevron_right
             </i>
         </div>
-        <div class="dropdown__item item--left">
+        <a href="<%= `/${locale}/developer` %>" class="item--condensed dropdown__item item--left">
             <i class="dropdown__item__icon icon--left material-icons-round">
                 face
             </i>
-            <span><%= translations['common.hire-me'] %></span>
-        </div>
-        <div class="dropdown__item item--left">
+            <%= translations['common.hire-me'] %>
+        </a>
+        <a href="<%= `/${locale}/organization` %> "class="item--condensed dropdown__item item--left">
             <i class="dropdown__item__icon icon--left material-icons-round">
                 corporate_fare
             </i>
-            <span><%= translations['common.organization'] %></span>
-        </div>
+            <%= translations['common.organization'] %>
+        </a>
     </div>
     <div class="dropdown__menu" id="products-menu">
         <div class="dropdown__menu__header">
-            <div data-back class="dropdown__item item--left">
-                <i class="dropdown__item__icon icon--back material-icons-round">chevron_left</i>
-                <span><%= translations['footer.products'].toUpperCase() %></span>
+            <div data-back class="item--condensed dropdown__header-action item--left">
+                <i class="dropdown__header-icon icon--back material-icons-round">chevron_left</i>
+                <%= translations['footer.products'].toUpperCase() %>
             </div>
         </div>
         <ul class="dropdown__list">

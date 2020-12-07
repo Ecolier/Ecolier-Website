@@ -1,9 +1,7 @@
 const { Router } = require('express')
 
 class Controller {
-    constructor (options, data) {
-        this.options = options ?? {}
-        this.template = this.options.template ?? ''
+    constructor (data) {
         this.data = data ?? {}
         this._middlewares = []
     }
@@ -12,12 +10,8 @@ class Controller {
         return this._middlewares
     }
 
-    addMiddleware (middleware) {
-        this._middlewares.push(middleware)
-    }
-
-    render (req, res, next) { 
-        return res.render(this.template, this.data)
+    addMiddleware (...middlewares) {
+        this._middlewares.push(middlewares)
     }
 }
 

@@ -2,27 +2,23 @@ const markdown = require('markdown-it')()
 const axios = require('axios').default
 const path = require('path')
 
-const { BaseController } = require('./base-controller')
+const { BaseController } = require('./base')
 
 class ProductController extends BaseController {
     constructor () {
-        super({
-            template: 'product.ejs'
-        })
+        super()
         this.addMiddleware(this.fetchData.bind(this))
     }
     
     async fetchData (req, res, next) {      
-        const [product, products] = await Promise.all([
-            axios.get(`${process.env.SERVER}/${this.data.locale}/product/${this.data.product}`), 
-            axios.get(`${process.env.SERVER}/${this.data.locale}/products`)
-        ])
-        
+        const productResponse = await axios.get(`${process.env.SERVER}/${this.data.locale}/product/${this.data.product}`)
+        const product = productResponse.data
+
         var productContent = ''
         var contents = []
         
-        if (product.data.content) {
-            const parsed = markdown.parse(product.data.content)
+        if (product.content) {
+            const parsed = markdown.parse(product.content)
             
             parsed.forEach((token, index) => {
                 if (token.type === 'heading_open') {
@@ -37,11 +33,10 @@ class ProductController extends BaseController {
         
         this.data = { 
             ...this.data, 
-            product: product.data,
-            products: products.data,
+            product: product,
             productContent: productContent,
             summary: contents,
-            title: `${product.data.name} - ${product.data.description}`,
+            title: `${product.name} - ${product.description}`,
             hyphenate: str => { return str.replace(/\s/g, '-').toLowerCase() }
         }
 

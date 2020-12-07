@@ -9,7 +9,9 @@ module.exports = {
 
   entry: {
     landing: './src/page/landing/landing.js',
-    product: './src/page/product/product.js'
+    product: './src/page/product/product.js',
+    developer: './src/page/developer/developer.js',
+    organization: './src/page/organization/organization.js'
   },
   
   output: {
@@ -36,6 +38,16 @@ module.exports = {
       chunks: ['product'],
       filename: 'product.ejs',
       template: './src/page/product/index.ejs'
+    }),
+    new HtmlWebpackPlugin({
+      chunks: ['developer'],
+      filename: 'developer.ejs',
+      template: './src/page/developer/index.ejs'
+    }),
+    new HtmlWebpackPlugin({
+      chunks: ['organization'],
+      filename: 'organization.ejs',
+      template: './src/page/organization/index.ejs'
     })
   ],
   

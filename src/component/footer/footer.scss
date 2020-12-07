@@ -1,19 +1,15 @@
 .footer {
-    background-color: rgba(0, 0, 0, .96);
-    color: white;
-    margin-top: auto;
-    flex-grow: 1;
+    background-color: rgba(0, 0, 0, .87);
+    color: rgba(white, .75);
+    min-height: 300px;
+    bottom: 0;
+    width: 100%;
+    padding: 18pt 0;
     position: relative;
-    min-height: 250px;
-    max-height: 250px;
+    margin-top: auto;
 }
 
-.footer a {
-    text-decoration: none;
-    color: white;
-}
-
-.footer .brand {
+.footer__brand {
     text-decoration: none;
     color: white;
     display: block;
@@ -23,29 +19,37 @@
     bottom: 0;
 }
 
-.footer .brand span,
-.footer .product span {
+.footer__brand-spirit {
     font-weight: 300;
     font-size: 1rem;
     margin-left: .1rem;
     color: rgba(255, 255, 255, .42);;
 }
 
-.footer .list-title {
-    margin: 9pt 0;
+.footer__secondary {
+    font-weight: 300;
+    font-size: 1rem;
+    margin-left: .1rem;
+    color: rgba(255, 255, 255, .42);;
+}
+
+.footer__title {
+    margin-bottom: 9pt;
     display: block;
     font-size: 1em;
-    padding: 6pt;
+    padding-bottom: 12pt;
     font-weight: 300;
-    border-left: 2px solid rgba(white, .6);
-    margin-bottom: 6pt;
+    border-bottom: 1px solid rgba(white, .09);
     color: rgba(white, .6);
 }
 
-.footer ul {
+.footer__list {
     color: rgba(255, 255, 255, .42);
+}
 
-    li {
-        padding: 6pt 0;
-    }
+.footer__item {
+    padding: 6pt 0;
+    text-decoration: none;
+    color: white;
+    display: block;
 }

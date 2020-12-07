@@ -1,13 +1,13 @@
 .article {
-    margin-top: 18pt;
-    margin-bottom: 2em;
+    color: $text-dark-0;
+    margin-bottom: 36pt;
 }
 
-.article h1 {
-    font-size: 3rem;
-    margin-bottom: .5em;
+.article__title {
+    font-size: 2.5rem;
+    margin-bottom: 9pt;
 }
 
-.article p {
+.article__content {
     line-height: 1.5em;
 }

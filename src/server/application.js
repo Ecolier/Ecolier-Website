@@ -32,12 +32,17 @@ class Application {
         }
 
         route.router.use(route.path, express.static(path.join(__dirname, '..', '..', 'dist')))
+        
         route.router[route.method](route.path, (req, res, next) => {
             route.controller.data = { ...route.controller.data, ...req.params }
             return next()
         }, 
         ...route.controller.getMiddlewares(),
-        route.controller.render.bind(route.controller))
+        (req, res, next) => { 
+            if (route.template) {
+                return res.render(route.template, route.controller.data) 
+            }
+        })
 
         if (route.routes) {
             route.routes.forEach(subroute => {

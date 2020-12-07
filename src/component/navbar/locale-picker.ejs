@@ -8,7 +8,7 @@
     <div class="dropdown__list">
         <% const selected = locales.find(l => l.code === locale) %>
         <% if (selected) { %>
-            <span class="dropdown__item item--selected">
+            <span class="dropdown__item item--condensed item--selected ">
                 <%= selected.name %>
                 <i class="dropdown__item__icon icon--check material-icons-round">
                     radio_button_checked
@@ -16,7 +16,7 @@
             </span>
         <% } %>
         <% locales.filter(locale => locale.code !== selected.code).forEach(locale => { %>
-            <a data-ref="<%= locale.code %>" href="<%= locale.localizedPath %>" class="dropdown__item__link dropdown__item">
+            <a data-ref="<%= locale.code %>" href="<%= locale.localizedPath %>" class="dropdown__item__link item--condensed dropdown__item">
                 <%= locale.name %>
                 <i class="dropdown__item__icon icon--uncheck material-icons-round">
                     radio_button_unchecked

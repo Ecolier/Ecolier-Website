@@ -1,0 +1,6 @@
+<% previews.forEach((preview, index) => { %>
+<% if (index === 0) { %>
+    <span class="jumbotron__pager__indicator indicator--active" data-ref="<%= index %>"></span>
+<% } else { %>
+    <span class="jumbotron__pager__indicator" data-ref="<%= index %>"></span>
+<% }}) %>

@@ -1,0 +1,24 @@
+<% if (product.repositories) { %>
+    <div class="card card--source c-md">
+        <div class="card__header">
+            <i class="card__icon material-icons rounded">
+                code
+            </i>
+            <h1 class="card__title">
+                <%= translations['product.source-code'].toUpperCase() %>
+            </h1>
+        </div>
+        <div class="repository-list">
+            <% product.repositories.forEach(repository => { %>
+                <div class="repository-item">
+                    <span class="repository__title">
+                        <%= repository.name %>
+                    </span>
+                    <a href="<%= repository.uri %>" class="repository__uri">
+                        <%= repository.uri %>
+                    </a>
+                </div>
+            <% }) %>
+        </div>
+    </div>
+<% } %>

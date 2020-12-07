@@ -1,27 +1,12 @@
 <div class="c-md">
-    <header class="product-header">
-        <% if (product.repositories) { %>
-            <div class="card">
-                <div class="header">
-                    <i class="material-icons rounded">code</i>
-                    <h2><%= translations['product.source-code'].toUpperCase() %></h2>
-                </div>
-                <div class="repository-list">
-                    
-                    <% product.repositories.forEach(repository => { %>
-                        <div class="repository">
-                            <span class="repository-name"><%= repository.name %></span>
-                            <a href="<%= repository.uri %>" class="repository-uri"><%= repository.uri %></a>
-                        </div>
-                    <% }) %>
-                </div>
-            </div>
-        <% } %>
-        <h1 class="product-name"><%= product.name %></h1>
-        <h2 class="product-description"><%= product.description %></h2>
-        <%- include('./summary/summary.ejs') %>
-    </header>
-    <section class="product-content">
+    <h1 class="product__name">
+        <%= product.name %>
+    </h1>
+    <h2 class="product__description">
+        <%= product.description %>
+    </h2>
+    <%- include('./summary/summary.ejs') %>
+    <section class="product__content">
         <%- productContent %>
     </section>
 </div>

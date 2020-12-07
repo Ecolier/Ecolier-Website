@@ -1,0 +1,23 @@
+@import '~component/card/card.scss';
+
+.card--source .repository {
+    padding: 9pt;
+}
+
+.card--source .repository-item {
+    padding: 9pt;
+    line-height: 1.5em;
+}
+
+.card--source .repository-list {
+    padding: 9pt;
+}
+
+.card--source .repository__title {
+    margin-right: 9pt;
+}
+
+.card--source .repository__uri {
+    color: rgba(255, 255, 255, .9);
+    display: block;
+}

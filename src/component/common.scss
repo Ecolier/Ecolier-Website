@@ -2,10 +2,13 @@
 @import './variables.scss';
 @import './footer/footer.scss';
 @import './navbar/navbar.scss';
+@import './jumbotron/jumbotron.scss';
+
+$body-margin: $navbar-height + 18pt;
 
 html {
     font-family: 'Lato', sans-serif;
-    font-size: 11pt;
+    font-size: 16px;
     height: 100%;
     width: 100%;
     -webkit-text-size-adjust: 100%;
@@ -19,7 +22,7 @@ body {
     display: flex;
     flex-direction: column;
     background-color: rgba(black, .03);
-    margin-top: 80px;
+    margin-top: $body-margin;
 }
 
 ul {

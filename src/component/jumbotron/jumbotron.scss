@@ -1,0 +1,94 @@
+.jumbotron {
+    padding: 18pt;
+    display: block;
+    border-radius: 6pt;
+    color: rgba(white, .75);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
+.jumbotron__preview {
+    display: none;
+}
+
+.jumbotron__preview.preview--active{
+    display: block;
+}
+
+.jumbotron__preview__title {
+    color: rgba(white, .90);
+    margin-bottom: 6pt;
+    font-size: 2.5rem;
+    font-weight: 800;
+}
+
+.jumbotron__preview__subtitle {
+    color: rgba(white, .84);
+    margin-bottom: 18pt;
+    font-size: 1.5rem;
+    font-weight: small;
+}
+
+.jumbotron__preview__content {
+    margin-bottom: 18pt;
+    line-height: 1.5em;
+}
+
+.jumbotron__preview__callout {
+    padding: 1em;
+    display: inline-block;
+    border-radius: 6pt;
+    color: inherit;
+    text-decoration: none;
+    border: 1px solid rgba(white, .75);
+    transition: background-color .2s, color .2s, border-color .2s;
+}
+
+.jumbotron__preview__callout:hover {
+    color: rgba(white, .75);
+    background-color: rgba(white, .09);
+    border-color: rgba(white, .75);
+}
+
+.jumbotron__pager {
+    padding: 9pt;
+    display: block;
+    padding: 0;
+    text-align: center;
+    margin-top: 18pt;
+}
+
+.jumbotron__pager__indicator {
+    position: relative;
+    display: inline-block;
+    width: 6pt;
+    height: 6pt;
+    margin-right: 6pt;
+    cursor: pointer;
+    vertical-align: middle;
+}
+
+.jumbotron__pager__indicator:after {
+    border-radius: 100%;
+    position: absolute;
+    content: '';
+    display: inline-block;
+    width: 6pt;
+    height: 6pt;
+    background-color: rgba(white, 0.5);
+    transition: background-color .2s, transform .2s;
+    transform-origin: center;
+}
+
+.jumbotron__pager__indicator:last-child {
+    margin: 0;
+}
+
+.jumbotron__pager__indicator.indicator--active:after {
+    background-color: rgba(white, .9);
+    transform: scale(1.3);
+}
+
+.jumbotron__pager__indicator:not(.indicator--active):hover:after {
+    background-color: rgba(white, .6);
+    transform: scale(1.2);
+}

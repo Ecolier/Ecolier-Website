@@ -1,6 +1,7 @@
 @import '../variables.scss';
 
 .dropdown__title {
+    color: $text-dark-1;
     display: block;
     font-size: 18pt;
     padding-bottom: 9pt;
@@ -13,21 +14,25 @@
 }
 
 .dropdown__item {
-    padding: 9pt 0;
+    padding: 12pt 0;
     display: flex;
     cursor: pointer;
     justify-content: space-between;
     align-items: center;
     border-radius: 3pt;
     color: $text-dark-1;
+    text-decoration: none;
     transition: all .2s;
+}
+
+.dropdown__item.item--condensed {
+    padding: 9pt 0;
 }
 
 .dropdown__item__icon {
     position: relative;
-    line-height: 0;
-    font-size: 30pt;
-    background-color: rgba(black, .3);
+    font-size: 24pt;
+    color: rgba(0, 0, 0, .6);
 }
 
 .dropdown__item__icon:after {
@@ -64,7 +69,6 @@
 }
 
 .dropdown__item__link {
-    color: inherit;
     text-decoration: none;
 }
 
@@ -108,7 +112,6 @@
 
 .dropdown__item__icon.icon--uncheck {
     font-size: 20pt;
-    color: $text-dark-1;
 }
 
 .dropdown__item__icon.icon--left {
@@ -128,4 +131,41 @@
 
 .item__label.label--grow {
     flex-grow: 1;
+}
+
+.dropdown__header-action {
+    display: flex;
+    align-items: center;
+    color: $text-dark-1;
+    cursor: pointer;
+}
+
+.dropdown__header-icon {
+    position: relative;
+    font-size: 24pt;
+    color: rgba(black, .3);
+    margin-right: 12pt;
+    transition: color .2s;
+}
+
+.dropdown__header-icon:after {
+    content: '';
+    position: absolute;
+    width: 30pt;
+    height: 30pt;
+    z-index: -1;
+    border-radius: 100%;
+    overflow: visible;
+    left: -2pt;
+    top: -3pt;
+    transition: background-color .2s;
+    background-color: rgba(0, 0, 0, .06);
+}
+
+.dropdown__header-action:hover .dropdown__header-icon {
+    color: rgba(black, .42);
+}
+
+.dropdown__header-action:hover .dropdown__header-icon:after {
+    background-color: rgba(0, 0, 0, .12);
 }

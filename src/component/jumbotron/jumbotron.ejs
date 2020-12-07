@@ -1,16 +1,29 @@
-<div id="featured-jumbotron">
-    <ul data-ref="previews">
-        <% previews.forEach((preview, index) => { %>
-        <% if (index === 0) { %>
-        <li data-ref="<%= index %>" class="active">
-        <% } else { %>
-        <li data-ref="<%= index %>">
-        <% } %>
-            <h1><%= preview.title %></h1>
-            <h2><%= preview.subtitle %></h2>
-            <p><%= preview.content %></p>
-            <a href="<%= preview.route %>"><%= preview.callout %></a>
-        </li>
-        <% }) %>
-    </ul>
+<% previews.forEach((preview, index) => { %>
+<% if (index === 0) { %>
+    <div class="jumbotron__preview preview--active" data-preview="<%= index %>" class="preview--active">
+<% } else { %>
+    <div class="jumbotron__preview" data-preview="<%= index %>">
+<% } %>
+        <h1 class="jumbotron__preview__title">
+            <%= preview.title %>
+        </h1>
+        <h2 class="jumbotron__preview__subtitle">
+            <%= preview.subtitle %>
+        </h2>
+        <p class="jumbotron__preview__content">
+            <%= preview.content %>
+        </p>
+        <a class="jumbotron__preview__callout" href="<%= preview.route %>">
+            <%= preview.callout %>
+        </a>
+    </div>
+<% }) %>
+
+<div class="jumbotron__pager" data-pager>
+    <% previews.forEach((preview, index) => { %>
+    <% if (index === 0) { %>
+        <span class="jumbotron__pager__indicator indicator--active" data-indicator="<%= index %>"></span>
+    <% } else { %>
+        <span class="jumbotron__pager__indicator" data-indicator="<%= index %>"></span>
+    <% }}) %>
 </div>

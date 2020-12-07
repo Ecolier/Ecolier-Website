@@ -1,3 +1,2 @@
 import 'component/navbar'
-import './product.scss'
-
+import './developer.scss'

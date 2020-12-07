@@ -1,14 +1,24 @@
 const { Controller } = require('./controller')
 const i18n = require('./i18n')
-const express = require('express')
-const path = require('path')
 
-class BaseController extends Controller {
-    constructor (options, data) {
-        super(options, data)
+class LanguageController extends Controller {
+    constructor (data) {
+        super(data)
+
         this.addMiddleware(
-            this.getLanguage.bind(this)
-        )
+            this.checkLanguage.bind(this),
+            this.getLanguage.bind(this))
+    }
+
+    checkLanguage (req, res, next) {
+        const pathComponents = req.path.split('/')
+        const lang = pathComponents[1]
+        console.log(lang)
+        if(i18n.getLocaleIfAvailable(lang)) {
+            return next()
+        }
+        const path = pathComponents.slice(1, pathComponents.length).join('/')
+        return res.redirect(`/${req.acceptsLanguages()[0].split('-')[0]}/${path}`)
     }
 
     getLanguage (req, res, next) {
@@ -28,4 +38,4 @@ class BaseController extends Controller {
     }
 }
 
-module.exports = { BaseController }
+module.exports = { LanguageController }
