@@ -1,1 +1,190 @@
-@import '~component/common.scss'
+@import '~common/common.scss';
+@import '~component/card/card.scss';
+@import 'projects/projects.scss';
+
+body {
+    background-color: #1A1A1A;
+}
+
+.navbar {
+    background-color: #222;
+    box-shadow: none;
+    border-bottom: 1px solid #333;
+}
+
+.navbar__brand {
+    color: rgba(white, .81);
+}
+
+.navbar__dropdown-trigger {
+    color: rgba(white, .75);
+    background-color: rgba(white, .09);
+}
+
+.navbar__dropdown-trigger:hover,
+.navbar__dropdown-trigger.dropdown-trigger--active {
+    color: rgba(white, .81);
+    background-color: rgba(white, .3);
+}
+
+.navbar__dropdown.dropdown--active {
+    background-color: #222;
+    box-shadow: none;
+    border: 1px solid #333;
+}
+
+.dropdown__item {
+    color: rgba(white, .75);
+}
+
+.dropdown__item:not(.item--selected):hover .dropdown__item__icon {
+    color: rgba(white, .81);
+    background-color: rgba(white, .06);
+    border-radius: 100%;
+}
+
+.dropdown__item:not(.item--selected):hover {
+    color: rgba(white, .81);
+    background-color: rgba(white, .06);
+}
+
+.dropdown__item__icon {
+    color: rgba(white, .3);
+} 
+
+.dropdown__item.item--selected {
+    color: rgba(white, .9);
+}
+
+.dropdown__title {
+    color: rgba(white, .9);
+    border-color: #333;
+}
+
+.item__label.label--secondary {
+    color: rgba(white, .3);
+}
+
+.dropdown__menu__header {
+    border-color: #333;
+}
+
+.dropdown__header-action {
+    color: rgba(white, .81);
+}
+
+.dropdown__header-icon {
+    color: rgba(white, .6);
+}
+
+.dropdown__header-icon:after {
+    background-color: rgba(white, .06);
+}
+
+.dropdown__header-action:hover .dropdown__header-icon {
+    color: rgba(white, .81);
+}
+
+.dropdown__header-action:hover .dropdown__header-icon:after {
+    background-color: rgba(white, .09);
+}
+
+.footer {
+    border-top: 1px solid #333;
+    background-color: #222;
+}
+
+.developer__picture {
+    background-image: url('./resources/evan.jpeg');
+    width: 180px;
+    height: 180px;
+    border-radius: 100%;
+    background-position: 100% 50%;
+    background-size: 360px;
+    border: 2px solid rgba(white, .09);
+    margin: 0 auto 18pt auto;
+}
+
+.developer__name {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 6pt;
+    color: rgba(white, .81);
+}
+
+.developer__job {
+    font-size: 1.5rem;
+    text-align: center;
+    color: rgba(white, .75);
+    margin-bottom: 9pt;
+}
+
+.developer__biography {
+    padding-top: 9pt;
+    border-top: 1px solid #333;
+    text-align: justify;
+    color: rgba(white, .6);
+    line-height: 1.5rem;
+    margin-bottom: 18pt;
+}
+
+.c-centered {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.developer__title {
+    font-size: 2em;
+    color: rgba(white, .81);
+    margin-bottom: 18pt;
+}
+
+.developer__contact {
+    
+}
+
+.developer__contact__field {
+    max-width: 100%;
+    width: 100%;
+    height: 100pt;
+    background-color: #333;
+    border-radius: 6pt;
+    border: none;
+    color: rgba(white, .75);
+    resize: vertical;
+    padding: 9pt;
+    font-size: 1rem;
+    margin-bottom: 9pt;
+}
+
+.developer__contact__submit {
+    padding: 12pt 36pt;
+    background-color: transparent;
+    border: 1px solid #444;
+    border-radius: 6pt;
+    font-size: 1rem;
+    color: rgba(white, .6);
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+.c-developer__section {
+    padding: 18pt;
+    background-color: #262626;
+    border-radius: 6pt;
+    box-shadow: 0 1px 2px rgba(black, .3);
+    margin-bottom: 18pt;
+}
+
+.developer__contact__address {
+    width: 100%;
+    background-color: #333;
+    border-radius: 6pt;
+    border: none;
+    color: rgba(white, .75);
+    resize: vertical;
+    padding: 9pt;
+    font-size: 1rem;
+    margin-bottom: 9pt;
+}

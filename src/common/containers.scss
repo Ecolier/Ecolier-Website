@@ -1,0 +1,39 @@
+@import './navbar/navbar.scss';
+
+$page-horizontal-margins: 12pt;
+$page-top-margin: $navbar-height + 18pt;
+
+.c-page {
+    margin-top: $page-top-margin;
+}
+
+.c-page--flex {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.c-content {
+    margin-right: $page-horizontal-margins;
+    margin-left: $page-horizontal-margins;
+}
+
+@media screen and (min-width: 769px) {
+
+    .c-content{
+        margin-right: auto;
+        margin-left: auto;
+        width: 75%;
+    }
+
+}
+
+@media screen and (min-width: 1025px) {
+
+    .c-content {
+        margin-right: auto;
+        margin-left: auto;
+        width: 769px;
+    }
+
+}

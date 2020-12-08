@@ -1,14 +1,18 @@
 <!DOCTYPE html>
-<html lang="<%= locale %>">
+<html lang="<%%= locale %>">
     <head>
-        <title><%= title %></title>
+        <title><%%= title %></title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
     </head>
     <body>
-        <%- include('navbar/navbar.ejs') %>
-        <%- include('footer/footer.ejs') %>
+        <%%- include('navbar/navbar.ejs') %>
+        <div class="c-page c-content">
+            <%%- include('product/source/source.ejs') %>
+            <%%- include('product/product.ejs') %>
+        </div>
+        <%%- include('footer/footer.ejs') %>
     </body>
-</html> 
+</html>

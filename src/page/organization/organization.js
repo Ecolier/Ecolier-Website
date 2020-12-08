@@ -1,2 +1,2 @@
-import 'component/navbar'
+import 'common/navbar'
 import './organization.scss'

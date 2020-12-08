@@ -4,16 +4,15 @@ const path = require('path')
 
 class Application {
 
-    constructor (routes) {
+    constructor (routes, options) {
         this.routes = routes
         this.self = this
         this._application = express()
         this._application.set('view engine', 'ejs');
-        this._application.set('views', [
-            path.join(__dirname, '..', '..', 'dist'),
-            path.join(__dirname, '..', 'component'),
-            path.join(__dirname, '..', 'page')
-        ])
+        this._application.set('views', options.views)
+        this._application.use(express.urlencoded({
+            extended: true
+        }))
         
         this.routes.forEach(route => {
             this.addRoute(this._application, route)

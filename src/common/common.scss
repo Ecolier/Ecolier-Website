@@ -1,10 +1,8 @@
-@import './reset.scss';
-@import './variables.scss';
-@import './footer/footer.scss';
-@import './navbar/navbar.scss';
-@import './jumbotron/jumbotron.scss';
-
-$body-margin: $navbar-height + 18pt;
+@import 'reset.scss';
+@import 'variables.scss';
+@import 'containers.scss';
+@import 'footer/footer.scss';
+@import 'navbar/navbar.scss';
 
 html {
     font-family: 'Lato', sans-serif;
@@ -22,7 +20,6 @@ body {
     display: flex;
     flex-direction: column;
     background-color: rgba(black, .03);
-    margin-top: $body-margin;
 }
 
 ul {
@@ -45,26 +42,4 @@ ul {
 
 .display--block {
     display: block;
-}
-
-.c-md {
-    margin: 0 9pt;
-}
-
-@media screen and (min-width: 769px) {
-
-    .c-md {
-        margin: 0 auto;
-        width: 75%;
-    }
-
-}
-
-@media screen and (min-width: 1025px) {
-
-    .c-md {
-        margin: 0 auto;
-        width: 769px;
-    }
-
 }

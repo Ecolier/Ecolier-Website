@@ -1,3 +1,3 @@
-import 'component/navbar'
+import 'common/navbar'
 import './featured'
 import './landing.scss'

@@ -3,10 +3,12 @@ const webpack = require('webpack');
 const TerserPlugin = require('terser-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ejs = require('ejs');
+const { dirname } = require('path');
 
 module.exports = {
   mode: process.env.NODE_ENV ?? 'development',
-
+  
   entry: {
     landing: './src/page/landing/landing.js',
     product: './src/page/product/product.js',
@@ -16,46 +18,38 @@ module.exports = {
   
   output: {
     filename: '[name].bundle.js',
-    path: __dirname + '/dist'
+    path: __dirname + '/dist',
+    publicPath: ''
   },
-
+  
   resolve: {
     alias: {
-      'component': path.resolve(__dirname, 'src', 'component')
+      'component': path.join(__dirname, 'src', 'component'),
+      'common': path.join(__dirname, 'src', 'common'),
     },
     fallback: { path: require.resolve("path-browserify"), fs: false }
   },
-
-  plugins: [
-    new webpack.ProgressPlugin(),
-    new MiniCssExtractPlugin(),
-    new HtmlWebpackPlugin({
-      chunks: ['landing'],
-      filename: 'landing.ejs',
-      template: './src/page/landing/index.ejs'
-    }),
-    new HtmlWebpackPlugin({
-      chunks: ['product'],
-      filename: 'product.ejs',
-      template: './src/page/product/index.ejs'
-    }),
-    new HtmlWebpackPlugin({
-      chunks: ['developer'],
-      filename: 'developer.ejs',
-      template: './src/page/developer/index.ejs'
-    }),
-    new HtmlWebpackPlugin({
-      chunks: ['organization'],
-      filename: 'organization.ejs',
-      template: './src/page/organization/index.ejs'
-    })
-  ],
   
   module: {
     rules: [
       {
-        test: /\.ejs$/i,
-        loader: 'html-loader'
+        test: /\.jpe?g$/i,
+        use: {
+          loader: 'file-loader',
+          options: {
+            name: '[name].[ext]',
+            outputPath: 'images/'
+          }
+        }
+      },
+      {
+        test: /\.html$/,
+        loader: 'html-loader',
+        options: {
+            preprocessor: (content, loaderContext) => {
+              return ejs.render(content)
+            }
+        }
       },
       { 
         test: /\.(js|jsx)$/,
@@ -65,7 +59,7 @@ module.exports = {
       {
         test: /.(scss|css)$/,
         use: [
-          {
+          { 
             loader: MiniCssExtractPlugin.loader
           }, 
           {
@@ -73,31 +67,58 @@ module.exports = {
             options: {
               sourceMap: true
             }
-          },
+          }, 
           {
             loader: "sass-loader",
             options: {
               sourceMap: true
             }
-          }]
-        }]
-      },
-      
-      optimization: {
-        minimizer: [new TerserPlugin()],
-        
-        splitChunks: {
-          cacheGroups: {
-            vendors: {
-              priority: -10,
-              test: /[\\/]node_modules[\\/]/
-            }
-          },
-          
-          chunks: 'async',
-          minChunks: 1,
-          minSize: 30000,
-          name: false
-        }
+          }
+        ]
       }
+    ]
+  },
+
+  plugins: [
+    new webpack.ProgressPlugin(),
+    new MiniCssExtractPlugin(),
+    new HtmlWebpackPlugin({
+      chunks: ['landing'],
+      filename: 'landing.ejs',
+      template: './src/page/landing/index.html'
+    }),
+    new HtmlWebpackPlugin({
+      chunks: ['product'],
+      filename: 'product.ejs',
+      template: './src/page/product/index.html'
+    }),
+    new HtmlWebpackPlugin({
+      chunks: ['developer'],
+      filename: 'developer.ejs',
+      template: './src/page/developer/index.html'
+    }),
+    new HtmlWebpackPlugin({
+      chunks: ['organization'],
+      filename: 'organization.ejs',
+      template: './src/page/organization/index.html'
+    })
+  ],
+      
+  optimization: {
+    minimizer: [new TerserPlugin()],
+      
+    splitChunks: {
+      cacheGroups: {
+        vendors: {
+          priority: -10,
+          test: /[\\/]node_modules[\\/]/
+        }
+      },
+        
+      chunks: 'async',
+      minChunks: 1,
+      minSize: 30000,
+      name: false
     }
+  }
+}

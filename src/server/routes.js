@@ -30,6 +30,12 @@ module.exports =
         controller: new DeveloperController()
     },
     {
+        path: '/:locale?/developer', 
+        method: 'post', 
+        template: 'developer.ejs', 
+        controller: new DeveloperController()
+    },
+    {
         path: '/:locale?/organization', 
         method: 'get', 
         template: 'organization.ejs', 

@@ -1,0 +1,27 @@
+<div class="c-page c-content">
+    <div class="developer__picture"></div>
+    <div class="developer__name">
+        <%= developer.name %>
+    </div>
+    <div class="developer__job">
+        <%= developer.job %>
+    </div>
+    <p class="developer__biography c-md">
+        <%= developer.biography %>
+    </p>
+    <div class="c-developer__section">
+        <%- include('developer/projects/projects.ejs') %>
+    </div>
+    <div class="c-developer__section">
+        <h1 class="developer__title">
+            Contact Me
+        </h1>
+        <div class="developer__contact">
+            <form method="POST">
+                <input data-next id="address" class="developer__contact__address" type="text" name="address" placeholder="Mail Address">
+                <textarea name="message" class="developer__contact__field" placeholder="What's on your mind?"></textarea>
+                <button class="developer__contact__submit" type="submit">Send</button>
+            </form>
+        </div>
+    </div>
+</div>

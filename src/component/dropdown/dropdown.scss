@@ -1,4 +1,4 @@
-@import '../variables.scss';
+@import '~common/variables.scss';
 
 .dropdown__title {
     color: $text-dark-1;
@@ -90,7 +90,7 @@
 }
 
 .dropdown__menu__header {
-    padding-bottom: 9pt;
+    padding-bottom: 12pt;
     margin-bottom: 9pt;
     border-bottom: 1px solid rgba(0, 0, 0, .09);
 }

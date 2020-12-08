@@ -1,0 +1,42 @@
+.developer__projects-title {
+    font-size: 2em;
+    color: rgba(white, .81);
+    margin-bottom: 18pt;
+}
+
+.c-project-grid {
+    
+}
+
+.c-project-row {
+    display: flex;
+    margin-bottom: 6pt;
+}
+
+.c-project {
+    width: 100%;
+}
+
+.c-project:nth-child(even) {
+    margin-left: 3pt;
+}
+
+.c-project:nth-child(odd) {
+    margin-right: 3pt;
+}
+
+.developer__project--khari {
+    background-color: rgb(222, 55, 138);
+}
+
+.developer__project--ecolier {
+    background-color: rgb(68, 77, 224);
+}
+
+.developer__project--hidavi {
+    background-color: rgb(219, 120, 61);
+}
+
+.developer__project--steppes {
+    background-color: rgb(63, 194, 24);
+}
