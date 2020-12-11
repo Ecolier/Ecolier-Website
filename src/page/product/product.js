@@ -1,3 +1,3 @@
-import 'common/navbar'
+import 'ecolier/component/navbar'
 import './product.scss'
 

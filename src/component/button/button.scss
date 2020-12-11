@@ -1,0 +1,23 @@
+.button {
+    padding: 12pt 24pt;
+    display: inline-block;
+    border-radius: 6pt;
+    text-decoration: none;
+    transition: background-color .2s, color .2s, border-color .2s;
+}
+
+.button--large {
+    padding: 18pt 36pt;
+}
+
+.button--dark.button--outline {
+    color: rgba(white, .75);
+    border: 1px solid rgba(white, .3);
+    background-color: rgba(white, .09);
+}
+
+.button--dark.button--outline:hover {
+    color: rgba(white, .9);
+    background-color: rgba(white, .18);
+    border-color: rgba(white, .6);
+}

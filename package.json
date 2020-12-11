@@ -6,11 +6,12 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "debug": "DEBUG=ecolier node --inspect-brk ./src/server/index.js",
-    "watch": "DEBUG=ecolier nodemon ./src/server/index.js",
-    "start": "node ./src/server/index.js"
+    "debug": "DEBUG=ecolier node --inspect-brk ./src/index.js",
+    "watch": "DEBUG=ecolier nodemon ./src/index.js",
+    "start": "node ./src/index.js"
   },
   "dependencies": {
+    "ecolier": "./src",
     "axios": "^0.21.0",
     "debug": "^4.3.1",
     "dotenv": "^8.2.0",
@@ -29,7 +30,7 @@
     "html-loader": "1.3.2",
     "html-webpack-plugin": "4.5.0",
     "mini-css-extract-plugin": "^1.3.1",
-    "node-sass": "^5.0.0",
+    "sass": "1.26.11",
     "nodemon": "^2.0.6",
     "path-browserify": "^1.0.1",
     "sass-loader": "^10.1.0",

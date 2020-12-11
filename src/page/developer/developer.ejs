@@ -14,13 +14,13 @@
     </div>
     <div class="c-developer__section">
         <h1 class="developer__title">
-            Contact Me
+            <%= translations['developer.contact-me'] %>
         </h1>
         <div class="developer__contact">
             <form method="POST">
-                <input data-next id="address" class="developer__contact__address" type="text" name="address" placeholder="Mail Address">
-                <textarea name="message" class="developer__contact__field" placeholder="What's on your mind?"></textarea>
-                <button class="developer__contact__submit" type="submit">Send</button>
+                <input data-next id="address" class="developer__contact__address" type="text" name="address" placeholder="<%= translations['developer.mail-address'] %>">
+                <textarea name="message" class="developer__contact__field" placeholder="<%= translations['developer.message-placeholder'] %>"></textarea>
+                <button class="developer__contact__submit button button--dark button--outline" type="submit"><%= translations['developer.send'] %></button>
             </form>
         </div>
     </div>

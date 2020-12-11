@@ -24,8 +24,7 @@ module.exports = {
   
   resolve: {
     alias: {
-      'component': path.join(__dirname, 'src', 'component'),
-      'common': path.join(__dirname, 'src', 'common'),
+      'ecolier': path.join(__dirname, 'src')
     },
     fallback: { path: require.resolve("path-browserify"), fs: false }
   },
@@ -85,22 +84,22 @@ module.exports = {
     new HtmlWebpackPlugin({
       chunks: ['landing'],
       filename: 'landing.ejs',
-      template: './src/page/landing/index.html'
+      template: './src/page/landing/landing.html'
     }),
     new HtmlWebpackPlugin({
       chunks: ['product'],
       filename: 'product.ejs',
-      template: './src/page/product/index.html'
+      template: './src/page/product/product.html'
     }),
     new HtmlWebpackPlugin({
       chunks: ['developer'],
       filename: 'developer.ejs',
-      template: './src/page/developer/index.html'
+      template: './src/page/developer/developer.html'
     }),
     new HtmlWebpackPlugin({
       chunks: ['organization'],
       filename: 'organization.ejs',
-      template: './src/page/organization/index.html'
+      template: './src/page/organization/organization.html'
     })
   ],
       

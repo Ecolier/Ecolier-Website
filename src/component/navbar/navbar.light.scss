@@ -1,0 +1,26 @@
+@import '../variables.scss';
+@import 'navbar.scss';
+
+.navbar--light {
+    background: $light-bg-0;
+    box-shadow: 0 0 3px 2px rgba(0, 0, 0, .09);
+}
+
+.navbar--light .navbar__brand {
+    color: $light-text-0;
+}
+
+.navbar--light .navbar__dropdown.dropdown--active {
+    background-color: $light-bg-0;
+    box-shadow: 0px 0px 12px 3px rgba(0, 0, 0, 0.09);
+}
+
+.navbar--light .navbar__dropdown-trigger {
+    background-color: rgba(0, 0, 0, 0.06);
+    color: rgba(0, 0, 0, 0.27);
+}
+
+.navbar--light .navbar__dropdown-trigger.dropdown-trigger--active,
+.navbar--light .navbar__dropdown-trigger:hover {
+    background-color: rgba(0, 0, 0, .15);
+}

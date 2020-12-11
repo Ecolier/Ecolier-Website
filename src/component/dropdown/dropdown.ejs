@@ -1,0 +1,17 @@
+<div id="<%= properties.id %>" class="navbar__dropdown" data-trigger="<%= properties.trigger %>">
+    <div class="dropdown__list">
+        <% data.items.forEach(item => { %>
+            <div class="item--condensed dropdown__item" data-menu="products-menu">
+                <i class="dropdown__item__icon icon--left material-icons-round">
+                    get_app
+                </i>
+                <span class="item__label label--grow">
+                    <%= item.name %>
+                </span>
+                <i class="dropdown__item__icon material-icons-round">
+                    chevron_right
+                </i>
+            </div>
+        <% }) %>
+    </div>
+</div>

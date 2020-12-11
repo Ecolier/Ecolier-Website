@@ -1,4 +1,4 @@
-import 'common/navbar'
+import 'ecolier/component/navbar'
 import './developer.scss'
 
 const focusOrSend = (event, elem) => {

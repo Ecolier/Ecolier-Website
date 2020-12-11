@@ -1,2 +1,2 @@
-import 'common/navbar'
+import 'ecolier/component/navbar'
 import './organization.scss'

@@ -1,4 +1,4 @@
-@import '~common/common.scss';
+@import '~ecolier/component/common.scss';
 @import './summary/summary.scss';
 @import './source/source.scss';
 
@@ -7,13 +7,13 @@
     font-weight: bold;
     margin-bottom: 6pt;
     margin-top: 36pt;
-    color: $text-dark-0;
+    color: $light-text-0;
 }
 
 .product__description {
     font-size: 1.5em;
     margin-bottom: 18pt;
-    color: $text-dark-1;
+    color: $light-text-1;
 }
 
 .product__content {
@@ -23,12 +23,12 @@
 
     h1 {
         font-size: 1.5em;
-        color: $text-dark-0;
+        color: $light-text-0;
         margin-bottom: 9pt;
     }
 
     p {
-        color: $text-dark-1;
+        color: $light-text-1;
         margin-bottom: 1em;
     }
 }

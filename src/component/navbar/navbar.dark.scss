@@ -1,0 +1,27 @@
+@import '../variables.scss';
+@import 'navbar.scss';
+
+.navbar--dark {
+    background-color: $dark-bg-2;
+    border-bottom: 1px solid $dark-bg-4;
+}
+
+.navbar--dark .navbar__brand {
+    color: $dark-text-1;
+}
+
+.navbar--dark .navbar__dropdown-trigger {
+    color: $dark-text-4;
+    background-color: $dark-bg-3;
+}
+
+.navbar--dark .navbar__dropdown-trigger:hover,
+.navbar--dark .navbar__dropdown-trigger.dropdown-trigger--active {
+    color: $dark-text-2;
+    background-color: $dark-bg-4;
+}
+
+.navbar--dark .navbar__dropdown.dropdown--active {
+    background-color: $dark-bg-2;
+    border: 1px solid $dark-bg-4;
+}

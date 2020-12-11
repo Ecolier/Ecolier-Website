@@ -1,36 +1,11 @@
-@import '~common/common.scss';
-@import '~component/card/card.scss';
+@import '~ecolier/component/common.scss';
+@import '~ecolier/component/navbar/navbar.dark.scss';
+@import '~ecolier/component/card/card.scss';
+@import '~ecolier/component/button/button.scss';
 @import 'projects/projects.scss';
 
 body {
     background-color: #1A1A1A;
-}
-
-.navbar {
-    background-color: #222;
-    box-shadow: none;
-    border-bottom: 1px solid #333;
-}
-
-.navbar__brand {
-    color: rgba(white, .81);
-}
-
-.navbar__dropdown-trigger {
-    color: rgba(white, .75);
-    background-color: rgba(white, .09);
-}
-
-.navbar__dropdown-trigger:hover,
-.navbar__dropdown-trigger.dropdown-trigger--active {
-    color: rgba(white, .81);
-    background-color: rgba(white, .3);
-}
-
-.navbar__dropdown.dropdown--active {
-    background-color: #222;
-    box-shadow: none;
-    border: 1px solid #333;
 }
 
 .dropdown__item {
@@ -134,12 +109,6 @@ body {
     margin-right: auto;
 }
 
-.developer__title {
-    font-size: 2em;
-    color: rgba(white, .81);
-    margin-bottom: 18pt;
-}
-
 .developer__contact {
     
 }
@@ -156,10 +125,12 @@ body {
     padding: 9pt;
     font-size: 1rem;
     margin-bottom: 9pt;
+    border: 1px solid #444;
+    -webkit-appearance: none;
 }
 
 .developer__contact__submit {
-    padding: 12pt 36pt;
+    
     background-color: transparent;
     border: 1px solid #444;
     border-radius: 6pt;
@@ -186,5 +157,7 @@ body {
     resize: vertical;
     padding: 9pt;
     font-size: 1rem;
+    border: 1px solid #444;
     margin-bottom: 9pt;
+    -webkit-appearance: none;
 }

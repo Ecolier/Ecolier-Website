@@ -1,0 +1,20 @@
+@use "sass:color";
+
+$light-bg-0: white;
+$light-bg-1: color.scale($light-bg-0, $lightness: -2%);
+
+$light-text-0: color.scale(black, $lightness: 20%);
+$light-text-1: color.scale($light-text-0, $lightness: 20%);
+$light-text-2: color.scale($light-text-1, $lightness: 20%);
+
+$dark-bg-0: color.scale(black, $lightness: 5%);
+$dark-bg-1: color.scale(black, $lightness: 10%);
+$dark-bg-2: color.scale(black, $lightness: 15%);
+$dark-bg-3: color.scale(black, $lightness: 20%);
+$dark-bg-4: color.scale(black, $lightness: 25%);
+
+$dark-text-0: color.scale(white, $lightness: -20%);
+$dark-text-1: color.scale(white, $lightness: -25%);
+$dark-text-2: color.scale(white, $lightness: -30%);
+$dark-text-3: color.scale(white, $lightness: -35%);
+$dark-text-4: color.scale(white, $lightness: -40%);

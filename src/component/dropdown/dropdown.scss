@@ -1,12 +1,10 @@
-@import '~common/variables.scss';
+@import '~ecolier/component/variables.scss';
 
 .dropdown__title {
-    color: $text-dark-1;
     display: block;
     font-size: 18pt;
     padding-bottom: 9pt;
     margin-bottom: 9pt;
-    border-bottom: 1pt solid rgba(black, .09);
 }
 
 .dropdown__item:not(:last-child) {
@@ -20,7 +18,6 @@
     justify-content: space-between;
     align-items: center;
     border-radius: 3pt;
-    color: $text-dark-1;
     text-decoration: none;
     transition: all .2s;
 }
@@ -32,30 +29,9 @@
 .dropdown__item__icon {
     position: relative;
     font-size: 24pt;
-    color: rgba(0, 0, 0, .6);
-}
-
-.dropdown__item__icon:after {
-    opacity: 0;
-    content: '';
-    position: absolute;
-    width: 30pt;
-    height: 30pt;
-    z-index: -1;
-    border-radius: 100%;
-    overflow: visible;
-    left: -6pt;
-    top: -6pt;
-    transition: opacity .2s;
-}
-
-.dropdown__item.item--selected {
-    color: $text-dark-0;
 }
 
 .dropdown__item:not(.item--selected):hover {
-    color: $text-dark-0;
-    background-color: rgba(black, .06);
     margin-left: -9pt;
     padding-left: 9pt;
     margin-right: -9pt;
@@ -65,7 +41,6 @@
 .dropdown__item:not(.item--selected):hover .dropdown__item__icon {
     position: relative;
     transition: color .2s;
-    color: $text-dark-0;
 }
 
 .dropdown__item__link {
@@ -92,7 +67,6 @@
 .dropdown__menu__header {
     padding-bottom: 12pt;
     margin-bottom: 9pt;
-    border-bottom: 1px solid rgba(0, 0, 0, .09);
 }
 
 .dropdown__menu__back-trigger {
@@ -107,7 +81,6 @@
 
 .dropdown__item__icon.icon--check {
     font-size: 20pt;
-    color: rgb(54, 88, 241);
 }
 
 .dropdown__item__icon.icon--uncheck {
@@ -118,7 +91,6 @@
     font-size: 18pt;
     line-height: 18pt;
     padding: 6pt;
-    background-color: rgba(0, 0, 0, .06);
     border-radius: 100%;
     margin-right: 9pt;
 }
@@ -126,7 +98,6 @@
 .item__label.label--secondary {
     display: block;
     margin-left: 6pt;
-    color: $text-dark-1;
 }
 
 .item__label.label--grow {
@@ -136,14 +107,12 @@
 .dropdown__header-action {
     display: flex;
     align-items: center;
-    color: $text-dark-1;
     cursor: pointer;
 }
 
 .dropdown__header-icon {
     position: relative;
     font-size: 24pt;
-    color: rgba(black, .3);
     margin-right: 12pt;
     transition: color .2s;
 }
@@ -159,13 +128,4 @@
     left: -2pt;
     top: -3pt;
     transition: background-color .2s;
-    background-color: rgba(0, 0, 0, .06);
-}
-
-.dropdown__header-action:hover .dropdown__header-icon {
-    color: rgba(black, .42);
-}
-
-.dropdown__header-action:hover .dropdown__header-icon:after {
-    background-color: rgba(0, 0, 0, .12);
 }

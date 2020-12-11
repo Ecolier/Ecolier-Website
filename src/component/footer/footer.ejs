@@ -1,0 +1,21 @@
+<footer class="footer">
+    <div class="c-content">
+        <h1 class="footer__title"><%= data.translations['footer.products'].toUpperCase() %></h1>
+        <div class="footer__list">
+            <% data.products.forEach(product => { %>
+                    <a class="footer__item" href="/<%= data.locale %>/product/<%= product.name.toLowerCase() %>">
+                        <%= product.name %>
+                        <span class="footer__secondary">
+                            - <%= product.description %>
+                        </span>
+                    </a>
+            <% }) %>
+        </div>
+        <a href="/<%= data.locale %>" class="footer__brand">
+            Ecolier
+            <span class="footer__brand-spirit">
+                <%= data.translations['footer.spirit'] %>
+            </span>
+        </a>
+    </div>
+</footer>

@@ -1,0 +1,63 @@
+@import 'dropdown.scss';
+
+.dropdown--light .dropdown__title {
+    color: $light-text-1;
+    border-bottom: 1pt solid rgba(black, .09);
+}
+
+.dropdown--light .dropdown__item {
+    color: $light-text-1;
+}
+
+.dropdown--light .dropdown__item__icon {
+    color: rgba(0, 0, 0, .6);
+}
+
+.dropdown--light .dropdown__item.item--selected {
+    color: $light-text-0;
+}
+
+.dropdown--light .dropdown__item:not(.item--selected):hover {
+    color: $light-text-0;
+    background-color: rgba(black, .06);
+}
+
+.dropdown--light .dropdown__item:not(.item--selected):hover .dropdown__item__icon {
+    color: $light-text-0;
+}
+
+.dropdown--light .dropdown__menu__header {
+    border-bottom: 1px solid rgba(0, 0, 0, .09);
+}
+
+.dropdown--light .dropdown__item__icon.icon--check {
+    color: rgb(54, 88, 241);
+}
+
+.dropdown--light .dropdown__item__icon.icon--left {
+    background-color: rgba(0, 0, 0, .06);
+}
+
+.dropdown--light .item__label.label--secondary {
+    color: $light-text-1;
+}
+
+.dropdown--light .dropdown__header-action {
+    color: $light-text-1;
+}
+
+.dropdown--light .dropdown__header-icon {
+    color: rgba(black, .3);
+}
+
+.dropdown--light .dropdown__header-icon:after {
+    background-color: rgba(0, 0, 0, .06);
+}
+
+.dropdown--light .dropdown__header-action:hover .dropdown__header-icon {
+    color: rgba(black, .42);
+}
+
+.dropdown--light .dropdown__header-action:hover .dropdown__header-icon:after {
+    background-color: rgba(0, 0, 0, .12);
+}

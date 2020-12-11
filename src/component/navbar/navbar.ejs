@@ -1,0 +1,22 @@
+<nav class="navbar navbar--<%= data.theme %>">
+    <div class="c-navbar c-content">
+        <a class="navbar__brand" href="/<%= data.locale %>">
+            <%= data.brand %>
+        </a>
+        <div class="navbar__nav-items nav-items--right">
+            <div id="dropdown-menu-trigger" class="navbar__dropdown-trigger nav-item">
+                <i class="navbar__dropdown-trigger__icon material-icons-round font-size--36pt">
+                    arrow_drop_down
+                </i>
+            </div>
+            <%- subviews.menuDropdown %>
+            %>
+            <div id="locale-picker-trigger" class="navbar__dropdown-trigger nav-item">
+                <i class="navbar__dropdown-trigger__icon material-icons-round">
+                    public
+                </i>
+            </div>
+            <%- subviews.localeDropdown %>
+        </div>
+    </div>
+</nav>
