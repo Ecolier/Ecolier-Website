@@ -4,7 +4,7 @@
             <i class="dropdown__item__icon icon--left material-icons-round">
                 get_app
             </i>
-            <span class="item__label label--grow"><%= translations['footer.products'] %></span>
+            <span class="item__label label--grow"><%= data.translations['footer.products'] %></span>
             <i class="dropdown__item__icon material-icons-round">
                 chevron_right
             </i>
@@ -13,24 +13,26 @@
             <i class="dropdown__item__icon icon--left material-icons-round">
                 face
             </i>
-            <%= translations['common.hire-me'] %>
+            <%= data.translations['common.hire-me'] %>
         </a>
         <a href="/organization"class="item--condensed dropdown__item item--left">
             <i class="dropdown__item__icon icon--left material-icons-round">
                 corporate_fare
             </i>
-            <%= translations['common.organization'] %>
+            <%= data.translations['common.organization'] %>
         </a>
     </div>
     <div class="dropdown__menu" id="products-menu">
         <div class="dropdown__menu__header">
             <div data-back class="item--condensed dropdown__header-action item--left">
-                <i class="dropdown__header-icon icon--back material-icons-round">chevron_left</i>
-                <%= translations['footer.products'].toUpperCase() %>
+                <i class="dropdown__header-icon icon--back material-icons-round">
+                    chevron_left
+                </i>
+                <%= data.translations['footer.products'].toUpperCase() %>
             </div>
         </div>
         <ul class="dropdown__list">
-            <% products.forEach(product => { %>
+            <% data.products.forEach(product => { %>
                 <a class="dropdown__item dropdown__item__link item--left" href="/<%= locale %>/product/<%= product.name.toLowerCase() %>">
                     <%= product.name %>
                     <span class="item__label label--secondary">

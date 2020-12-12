@@ -1,8 +1,8 @@
-const { LandingController } = require('./page/landing/landing-controller')
-const { LanguageController } = require('./language/language-controller')
-const { ProductController } = require('./page/product/product-controller')
-const { DeveloperController } = require('./page/developer/developer-controller')
-const { OrganizationController } = require('./page/organization/organization-controller')
+import { LandingController } from './page/landing/landing-controller'
+import { LanguageController } from './language/language-controller'
+import { ProductController } from './page/product/product-controller'
+import { DeveloperController } from './page/developer/developer-controller'
+import { OrganizationController } from './page/organization/organization-controller'
 
 module.exports = 
 [
@@ -13,32 +13,27 @@ module.exports =
     },
     {
         path: '/:locale?', 
-        template: 'landing.ejs', 
         method: 'get', 
         controller: LandingController, 
     },
     { 
         path: '/:locale?/product/:product', 
-        template: 'product.ejs', 
         method: 'get', 
         controller: ProductController
     },
     {
         path: '/:locale?/developer', 
-        method: 'get', 
-        template: 'developer.ejs', 
+        method: 'get',
         controller: DeveloperController
     },
     {
         path: '/:locale?/developer', 
         method: 'post', 
-        template: 'developer.ejs', 
         controller: DeveloperController
     },
     {
         path: '/:locale?/organization', 
         method: 'get', 
-        template: 'organization.ejs', 
         controller: OrganizationController
     }
 ]

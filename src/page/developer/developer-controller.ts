@@ -1,22 +1,23 @@
-const { BaseController } = require('../../base/base-controller')
-const axios = require('axios').default
+import { BaseController } from '../../base/base-controller'
+import * as express from 'express'
+import axios from 'axios'
 const mailer = require('nodemailer')
 
 const key = require(process.cwd() + '/' + process.env.KEY_JSON)
 
-class DeveloperController extends BaseController { 
-    constructor () {
-        super({
-            title: 'Evan - Developer'
-        })
+export class DeveloperController extends BaseController { 
 
-        this.addMiddleware(
+    public developer = {}
+
+    constructor () {
+        super()
+        this.middlewares.push(
             this.sendMail.bind(this),
             this.getDeveloper.bind(this)
         )
     }
 
-    async sendMail (req, res, next) {
+    async sendMail (req: express.Request, res: express.Response, next: express.NextFunction) {
         next()
         if (req.method === 'POST') {
 
@@ -45,11 +46,9 @@ class DeveloperController extends BaseController {
         }
     }
 
-    async getDeveloper(req, res, next) {
-        const developer = await axios.get(`${process.env.SERVER}/${this.data.locale}/developer`)
-        this.data.developer = developer.data
+    async getDeveloper (req: express.Request, res: express.Response, next: express.NextFunction) {
+        const developer = await axios.get(`${process.env.SERVER}/${this.locale}/developer`)
+        this.developer = developer.data
         return next()
     }
 }
-
-module.exports = { DeveloperController }
