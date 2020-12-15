@@ -12,7 +12,7 @@ const application = new Application(require('./routes'), {
         path.join(__dirname, 'component'),
         path.join(__dirname, 'page')
     ], 
-    staticPath: path.join(__dirname, '..', '..', 'dist')
+    staticPath: path.join(__dirname, '..', 'public')
 })
 
 application.run(parseInt(process.env.PORT ?? '8080'), () => { 

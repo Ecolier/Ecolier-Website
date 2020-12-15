@@ -1,12 +1,9 @@
-<div id="locale-picker-trigger" class="navbar__dropdown-trigger nav-item">
-    <i class="navbar__dropdown-trigger__icon material-icons-round">public</i>
-</div>
-<div id="locale-picker" class="navbar__dropdown" data-trigger="locale-picker-trigger">
+<div id="locale-picker" class="navbar__dropdown dropdown--<%= theme %>" data-trigger="locale-picker-trigger">
     <span class="dropdown__title">
-        <%= data.translations['locale-picker.language'] %>
+        <%= page.translations['locale-picker.language'] %>
     </span>
     <div class="dropdown__list">
-        <% const selected = data.locales.find(l => l.code === locale) %>
+        <% const selected = page.availableLocales.find(l => l.code === page.locale) %>
         <% if (selected) { %>
             <span class="dropdown__item item--condensed item--selected ">
                 <%= selected.name %>
@@ -15,8 +12,8 @@
                 </i>
             </span>
         <% } %>
-        <% data.locales.filter(locale => locale.code !== selected.code).forEach(locale => { %>
-            <a data-ref="<%= locale.code %>" href="<%= locale.localizedPath %>" class="dropdown__item__link item--condensed dropdown__item">
+        <% page.availableLocales.filter(locale => locale.code !== selected.code).forEach(locale => { %>
+            <a data-ref="<%= locale.code %>" href="<%= page.localizedPaths[locale.code] %>" class="dropdown__item__link item--condensed dropdown__item">
                 <%= locale.name %>
                 <i class="dropdown__item__icon icon--uncheck material-icons-round">
                     radio_button_unchecked

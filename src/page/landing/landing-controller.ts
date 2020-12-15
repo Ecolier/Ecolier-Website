@@ -1,16 +1,16 @@
 import axios from 'axios'
 import * as express from 'express'
 import { BaseController } from '../../base/base-controller'
-import { View } from '../../core/view'
+import { LandingView } from './landing-view'
 
 export class LandingController extends BaseController {
 
+    public view = new LandingView()
     public featured = []
     public article = {}
 
     constructor () {
         super()
-        this.view = new View('landing.ejs')
         this.middlewares.push(this.fetchData.bind(this))
     }
 
@@ -21,11 +21,8 @@ export class LandingController extends BaseController {
         ])
         this.featured = featured.data
         this.article = article.data
-
-        this.view?.updateData({
-            locale: this.locale
-        })
-
+        this.view.landingData.featured = this.featured
+        this.view.landingData.article = this.article
         return next()
     }
 }

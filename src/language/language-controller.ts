@@ -1,17 +1,15 @@
 import { Controller } from '../core/controller'
 import * as express from 'express'
-
-interface Translation {
-    [locale: string]: any
-}
+import { LanguageView } from './language-view'
+import { Locale, LocalizedPaths, Translation } from './language-model'
 
 class LanguageService {
-    public readonly locales = [
+    public readonly locales: Locale[] = [
         { code: 'fr', name: 'Français' },
         { code: 'en', name: 'English' },
     ]
     
-    public readonly translations = {
+    public readonly translations: Translation = {
         'fr': require('../translations/fr.json'),
         'en': require('../translations/en.json')
     }
@@ -23,9 +21,11 @@ class LanguageService {
 
 export class LanguageController extends Controller {
 
+    public view?: LanguageView
     public readonly languageService = new LanguageService()
     public readonly availableLocales = this.languageService.locales
     public translations: Translation = {}
+    public localizedPaths: LocalizedPaths = {}
     public locale = ''
 
     constructor () {
@@ -50,12 +50,26 @@ export class LanguageController extends Controller {
     }
 
     getLanguage (req: express.Request, res: express.Response, next: express.NextFunction) {
-        console.log(this)
         if(this.languageService.getLocaleIfAvailable(this.params.locale)) {
             this.locale = this.params.locale
-            this.translations = this.translations[this.locale]
+            this.translations = this.languageService.translations[this.locale]
+
+            this.localizedPaths = this.availableLocales.reduce((acc, curr) => {
+                const url = req.originalUrl.split('/')
+                url[1] = curr.code
+                return { ...acc, [curr.code]: url.join('/') }
+            }, {})
+
+            if (this.view) {
+                this.view.languageData.localizedPaths = this.localizedPaths
+                this.view.languageData.availableLocales = this.availableLocales
+                this.view.languageData.locale = this.locale
+                this.view.languageData.translations = this.translations
+            }
+
             return next()
         }
+        
         return res.redirect('404')
     }
 }

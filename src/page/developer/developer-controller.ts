@@ -1,12 +1,14 @@
 import { BaseController } from '../../base/base-controller'
 import * as express from 'express'
 import axios from 'axios'
+import { DeveloperView } from './developer-view'
 const mailer = require('nodemailer')
 
 const key = require(process.cwd() + '/' + process.env.KEY_JSON)
 
 export class DeveloperController extends BaseController { 
 
+    public view = new DeveloperView()
     public developer = {}
 
     constructor () {
@@ -49,6 +51,7 @@ export class DeveloperController extends BaseController {
     async getDeveloper (req: express.Request, res: express.Response, next: express.NextFunction) {
         const developer = await axios.get(`${process.env.SERVER}/${this.locale}/developer`)
         this.developer = developer.data
+        this.view.developer = this.developer
         return next()
     }
 }

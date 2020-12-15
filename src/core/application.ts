@@ -37,7 +37,6 @@ export class Application {
         route.router.all(
             route.path,
             async (req: express.Request, res: express.Response) => {
-                console.log('WESH')
                 const rootController = new route.controller()
                 const final = (req: express.Request, res: express.Response) => {
                     rootController.sendRenderedView(res, this.options.viewPaths)

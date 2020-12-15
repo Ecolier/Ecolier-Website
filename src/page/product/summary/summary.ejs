@@ -1,13 +1,13 @@
 <header class="summary">
-    <h1 class="summary__title"><%= translations['product.contents'].toUpperCase() %></h1>
+    <h1 class="summary__title"><%= page.translations['product.contents'].toUpperCase() %></h1>
     <div class="summary__list">
-        <% summary.forEach((section, index) => { %>
+        <% summary.titles.forEach((section, index) => { %>
             <% if (index === 0) { %>
-                <a class="summary__item item--selected" href="#<%= hyphenate(section) %>">
+                <a class="summary__item item--selected" href="#<%= summary.hyphenate(section) %>">
                     <%= section %>
                 </a>
             <% } else { %>
-                <a class="summary__item" href="#<%= hyphenate(section) %>">
+                <a class="summary__item" href="#<%= summary.hyphenate(section) %>">
                     <%= section %>
                 </a>
             <% }}) %>

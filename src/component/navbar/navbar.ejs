@@ -1,7 +1,7 @@
-<nav class="navbar navbar--<%= data.theme %>">
+<nav class="navbar navbar--<%= theme %>">
     <div class="c-navbar c-content">
-        <a class="navbar__brand" href="/<%= data.locale %>">
-            <%= data.brand %>
+        <a class="navbar__brand" href="/<%= page.locale %>">
+            <%= page.brand %>
         </a>
         <div class="navbar__nav-items nav-items--right">
             <div id="dropdown-menu-trigger" class="navbar__dropdown-trigger nav-item">
@@ -9,14 +9,18 @@
                     arrow_drop_down
                 </i>
             </div>
-            <%- subviews.menuDropdown %>
+            <%- include('navbar/dropdown-menu.ejs', {
+                theme: theme
+            }) %>
             %>
             <div id="locale-picker-trigger" class="navbar__dropdown-trigger nav-item">
                 <i class="navbar__dropdown-trigger__icon material-icons-round">
                     public
                 </i>
             </div>
-            <%- subviews.localeDropdown %>
+            <%- include('navbar/locale-picker.ejs', {
+                theme: theme
+            }) %>
         </div>
     </div>
 </nav>
