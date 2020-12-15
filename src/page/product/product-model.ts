@@ -1,5 +1,5 @@
 export class Summary {
-    public titles = ['']
+    public titles: string[] = []
     hyphenate (str: string) { return str.replace(/\s/g, '-').toLowerCase() }
 }
 

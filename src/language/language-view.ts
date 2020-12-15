@@ -1,8 +1,8 @@
-import { View, ViewData, renderable } from "../core/view"
-import { Locale, LocalizedPaths, Translation } from "./language-model"
+import { View, renderable } from '../core/view'
+import { Locale, LocalizedPaths, Translation } from './language-model'
 
 
-export interface LanguageViewData extends ViewData {
+export interface LanguageViewData {
     locale: string
     translations: Translation
     availableLocales: Locale[]

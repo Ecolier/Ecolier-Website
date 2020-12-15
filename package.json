@@ -10,7 +10,7 @@
     "compile": "tsc",
     "watch": "DEBUG=ecolier nodemon",
     "debug": "DEBUG=ecolier node --inspect-brk ./src/index.js",
-    "start": "NODE_ENV=production yarn webpack && yarn copy && yarn compile && node ./dist/index.js"
+    "start": "NODE_ENV=production node ./dist/index.js"
   },
   "dependencies": {
     "@types/ejs": "2.5.1",

@@ -19,7 +19,7 @@ export function renderable(alias?: string) {
             Reflect.set(target, 'toRender', [])
         }
         const toRender = Reflect.get(target, 'toRender') as ToRender
-
+        
         const key = alias ?? 'data'
         if (toRender[key]) {
             if (Array.isArray(toRender[key])) (toRender[key] as string[]).push(propertyKey)
@@ -48,58 +48,53 @@ export class View {
     }
     
     resolveViewPath (paths: string[]) {
-        const found = paths.find(viewPath => 
-            fs.existsSync(path.join(viewPath, this.template))
-            )
-            if (found) return path.join(found, this.template)
-            else throw `Could not resolve ${this.template}`
-        }
-        
-        willRender () { }
-        
-        async render (paths: string[]) {
-            this.willRender()
-            
-            const foundTemplate = this.resolveViewPath(paths)
-            const renderedSubviews: [id: string, DOM: string][] = []
-
-            const toRender = Reflect.get(this, 'toRender') as ToRender
-            const allData = Object.keys(toRender).reduce((acc, curr) => {
-                var bigres = { }
-                var res = toRender[curr]
-                if (Array.isArray(toRender[curr])) {
-                    const a = (res as string[]).reduce((acc2, curr2) => {
-                        if (typeof this[curr2] === 'object') {
-                            return { ...acc2, ...this[curr2] }
-                        }
-                        else return { ...acc2, [curr2]: this[curr2] }
-                    }, {})
-                    bigres = { [curr]: a }
-                } else {
-                    bigres = { [curr]: this[res as string] }
-                }
-                return { ...acc, ...bigres }
-            }, {})
-
-            for (const subview of this.subviews) {
-                await subview[1].render(paths).then(rendered => {
-                    renderedSubviews.push([subview[0], rendered])
-                })
-            }
-            
-            debug('rendering', this.constructor.name, 'with template', foundTemplate)
-            var result = Promise.resolve('')
-            
-            try {
-                result = await renderer.renderFile(foundTemplate, { 
-                    ...allData,
-                    properties: this.properties
-                }, { views: paths })
-            } catch (error) {
-                debug(error)
-            }
-
-            return result
-        }
+        const found = paths.find(viewPath => fs.existsSync(path.join(viewPath, this.template)))
+        if (found) return path.join(found, this.template)
+        else throw `Could not resolve ${this.template}`
     }
+
+    async render (paths: string[]) {        
+        const foundTemplate = this.resolveViewPath(paths)
+        const renderedSubviews: [id: string, DOM: string][] = []
+        
+        const toRender = Reflect.get(this, 'toRender') as ToRender
+
+        const allData = Object.keys(toRender).reduce((acc, curr) => {
+            var bigres = { }
+            var res = toRender[curr]
+            if (Array.isArray(toRender[curr])) {
+                const a = (res as string[]).reduce((acc2, curr2) => {
+                    if (typeof this[curr2] === 'object') {
+                        return { ...acc2, ...this[curr2] }
+                    }
+                    else return { ...acc2, [curr2]: this[curr2] }
+                }, {})
+                bigres = { [curr]: a }
+            } else {
+                bigres = { [curr]: this[res as string] }
+            }
+            return { ...acc, ...bigres }
+        }, {})
+        
+        for (const subview of this.subviews) {
+            await subview[1].render(paths).then(rendered => {
+                renderedSubviews.push([subview[0], rendered])
+            })
+        }
+        
+        debug('rendering', this.constructor.name, 'with template', foundTemplate)
+        var result = Promise.resolve('')
+        
+        try {
+            result = await renderer.renderFile(foundTemplate, { 
+                ...allData,
+                properties: this.properties
+            }, { views: paths })
+        } catch (error) {
+            debug(error)
+        }
+        
+        return result
+    }
+}
     
