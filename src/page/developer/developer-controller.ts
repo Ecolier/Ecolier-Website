@@ -49,7 +49,7 @@ export class DeveloperController extends BaseController {
     }
 
     async getDeveloper (req: express.Request, res: express.Response, next: express.NextFunction) {
-        const developer = await axios.get(`${process.env.SERVER}/${this.locale}/developer`)
+        const developer = await axios.get(`${process.env.SERVER}/${this.params.locale}/developer`)
         this.developer = developer.data
         this.view.developer = this.developer
         return next()
